@@ -11,7 +11,7 @@
 #define SERVOPIN 25         // Servo motor control pin (PWM)
 
 DHT dht(DHTPIN, DHTTYPE);
-LiquidCrystal_I2C lcd(0x3F, 16, 2);  // LCD address, adjust to match your device
+LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD address, adjust to match your device
 Servo wateringServo;
 int val = 0;
 int pirState = LOW;
