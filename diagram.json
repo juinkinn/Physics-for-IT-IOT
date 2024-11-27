@@ -6,13 +6,13 @@
     { "type": "wokwi-breadboard", "id": "bb1", "top": 64.2, "left": -275.6, "attrs": {} },
     { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 278.4, "left": -100.76, "attrs": {} },
     { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 119.2, "left": 21.42, "attrs": {} },
-    { "type": "wokwi-relay-module", "id": "relay1", "top": 173, "left": 134.4, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 211.4, "left": 403.2, "attrs": {} },
     { "type": "wokwi-led", "id": "led1", "top": 82.8, "left": 119, "attrs": { "color": "red" } },
     {
       "type": "wokwi-lcd1602",
       "id": "lcd1",
-      "top": 313.6,
-      "left": 245.6,
+      "top": 400,
+      "left": 274.4,
       "attrs": { "pins": "i2c" }
     },
     { "type": "wokwi-potentiometer", "id": "pot1", "top": 113.9, "left": -57.8, "attrs": {} },
@@ -20,8 +20,8 @@
     {
       "type": "wokwi-photoresistor-sensor",
       "id": "ldr1",
-      "top": 166.4,
-      "left": -421.6,
+      "top": 310.4,
+      "left": -440.8,
       "attrs": { "transform": "rotate(90)" }
     },
     {
@@ -35,11 +35,18 @@
     {
       "type": "wokwi-resistor",
       "id": "r1",
-      "top": 128.75,
-      "left": 134.4,
+      "top": 158.4,
+      "left": 114.65,
+      "rotate": 90,
       "attrs": { "value": "1000" }
     },
-    { "type": "wokwi-power-supply", "id": "ps1", "top": 200, "left": 450, "attrs": { "voltage": "12" } }
+    {
+      "type": "wokwi-power-supply",
+      "id": "ps1",
+      "top": 200,
+      "left": 450,
+      "attrs": { "voltage": "12" }
+    }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
@@ -65,16 +72,33 @@
     [ "lcd1:SCL", "esp:22", "cyan", [ "h0" ] ],
     [ "bb1:bn.38", "lcd1:GND", "black", [ "v0" ] ],
     [ "lcd1:VCC", "bb1:bp.39", "red", [ "h0" ] ],
-    [ "led1:A", "esp:27", "#8f4814", [ "v0" ] ],
-    [ "r1:2", "bb1:bn.36", "black", [ "v0" ] ],
     [ "bz1:1", "bb1:bn.11", "black", [ "v0" ] ],
     [ "esp:23", "bb1:16b.i", "green", [ "h0" ] ],
     [ "servo1:GND", "ps1:GND", "black", [ "h0" ] ],
     [ "servo1:V+", "relay1:NO", "red", [ "h0" ] ],
     [ "ps1:VCC", "relay1:COM", "red", [ "h0" ] ],
     [ "servo1:PWM", "esp:25", "magenta", [ "h-201.6", "v307.4" ] ],
-    [ "r1:1", "bb1:41t.c", "", [ "$bb" ] ],
-    [ "r1:2", "bb1:47t.c", "", [ "$bb" ] ]
+    [ "bb1:41t.c", "bb1:bn.35", "black", [ "v0" ] ],
+    [ "r1:2", "esp:27", "green", [ "v76.8", "h200.4", "v19.2" ] ],
+    [ "pir1:VCC", "bb1:33b.i", "", [ "$bb" ] ],
+    [ "pir1:OUT", "bb1:34b.i", "", [ "$bb" ] ],
+    [ "pir1:GND", "bb1:35b.i", "", [ "$bb" ] ],
+    [ "led1:A", "bb1:42t.b", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:41t.b", "", [ "$bb" ] ],
+    [ "pot1:GND", "bb1:24b.f", "", [ "$bb" ] ],
+    [ "pot1:SIG", "bb1:25b.f", "", [ "$bb" ] ],
+    [ "pot1:VCC", "bb1:26b.f", "", [ "$bb" ] ],
+    [ "dht1:VCC", "bb1:5b.i", "", [ "$bb" ] ],
+    [ "dht1:SDA", "bb1:6b.i", "", [ "$bb" ] ],
+    [ "dht1:NC", "bb1:7b.i", "", [ "$bb" ] ],
+    [ "dht1:GND", "bb1:8b.i", "", [ "$bb" ] ],
+    [ "bz1:1", "bb1:15b.h", "", [ "$bb" ] ],
+    [ "bz1:2", "bb1:16b.h", "", [ "$bb" ] ],
+    [ "servo1:GND", "bb1:60t.b", "", [ "$bb" ] ],
+    [ "servo1:V+", "bb1:60t.c", "", [ "$bb" ] ],
+    [ "servo1:PWM", "bb1:60t.d", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:42t.c", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:42b.g", "", [ "$bb" ] ]
   ],
   "dependencies": {}
 }

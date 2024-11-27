@@ -10,6 +10,8 @@
 #define BUZZERPIN 23        // Buzzer pin for motion detection alert
 #define SERVOPIN 25         // Servo motor control pin (PWM)
 #define RELAYPIN 22         // Relay pin for controlling servo power
+#define LIGHTPIN 34         // Light sensor pin (analog input)
+#define LEDPIN 27           // LED pin (digital output)
 
 DHT dht(DHTPIN, DHTTYPE);
 LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD address, adjust to match your device
@@ -38,14 +40,16 @@ void setup() {
   // Initialize Servo motor
   wateringServo.attach(SERVOPIN);
 
-  // Set pin modes for PIR sensor, Buzzer, and Relay
+  // Set pin modes for PIR sensor, Buzzer, Relay, and LED
   pinMode(PIRPIN, INPUT);
   pinMode(BUZZERPIN, OUTPUT);
   pinMode(RELAYPIN, OUTPUT);
+  pinMode(LEDPIN, OUTPUT);
 
-  // Initial state of Relay and Buzzer is OFF
+  // Initial state of Relay, Buzzer, and LED is OFF
   digitalWrite(RELAYPIN, LOW);
   digitalWrite(BUZZERPIN, LOW);
+  digitalWrite(LEDPIN, HIGH);
 }
 
 void loop() {
@@ -110,6 +114,19 @@ void loop() {
     digitalWrite(RELAYPIN, LOW); // Keep the relay OFF to save power
   }
 
+  // Read light sensor value
+  int lightLevel = analogRead(LIGHTPIN);
+
+  // Turn on LED if light level is low
+  int lightThreshold = 100; // Define a threshold for low light (adjust as needed)
+  if (lightLevel < lightThreshold) {
+    digitalWrite(LEDPIN, HIGH); // Turn on the LED
+    Serial.println("Low light detected. LED turned ON.");
+  } else {
+    digitalWrite(LEDPIN, LOW); // Turn off the LED
+    Serial.println("Sufficient light detected. LED turned OFF.");
+  }
+
   // Display temperature and humidity on the LCD screen
   lcd.clear();
   lcd.setCursor(0, 0);
@@ -140,7 +157,8 @@ void loop() {
   Serial.print(humidity);
   Serial.print(" %, Potentiometer: ");
   Serial.print(potValue);
-  Serial.println();
+  Serial.print(", Light Level: ");
+  Serial.println(lightLevel);
 
   delay(100);  // Delay for 100ms for stable updates
 }
