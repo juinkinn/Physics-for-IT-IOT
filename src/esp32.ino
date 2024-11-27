@@ -9,12 +9,20 @@
 #define PIRPIN 32           // PIR motion sensor pin
 #define BUZZERPIN 23        // Buzzer pin for motion detection alert
 #define SERVOPIN 25         // Servo motor control pin (PWM)
+#define RELAYPIN 22         // Relay pin for controlling servo power
 
 DHT dht(DHTPIN, DHTTYPE);
 LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD address, adjust to match your device
 Servo wateringServo;
-int val = 0;
+
 int pirState = LOW;
+unsigned long lastServoRunTime = 0;      // Stores the last time the servo was activated
+unsigned long lastServoUpdateTime = 0;   // Tracks time for servo oscillation steps
+const unsigned long servoInterval = 300;  // 1 hour in milliseconds
+const unsigned long servoRunDuration = 300000;  // 5 minutes in milliseconds
+const unsigned long servoStepDelay = 100;  // Delay between servo movements (in ms)
+bool servoRunning = false;
+bool servoDirectionUp = true;  // Direction of servo movement (up or down)
 
 void setup() {
   // Initialize serial communication for debugging
@@ -29,12 +37,14 @@ void setup() {
 
   // Initialize Servo motor
   wateringServo.attach(SERVOPIN);
-  
-  // Set pin modes for PIR sensor and Buzzer
+
+  // Set pin modes for PIR sensor, Buzzer, and Relay
   pinMode(PIRPIN, INPUT);
   pinMode(BUZZERPIN, OUTPUT);
-  
-  // Initial state of Buzzer is OFF
+  pinMode(RELAYPIN, OUTPUT);
+
+  // Initial state of Relay and Buzzer is OFF
+  digitalWrite(RELAYPIN, LOW);
   digitalWrite(BUZZERPIN, LOW);
 }
 
@@ -51,8 +61,54 @@ void loop() {
 
   // Read potentiometer value and map it to a servo angle (0 to 180 degrees)
   int potValue = analogRead(POTPIN);
-  int servoAngle = map(potValue, 0, 4095, 0, 180);  // Map potentiometer range to servo angle
-  wateringServo.write(servoAngle); // Adjust the servo position based on potentiometer
+
+  // Servo motor logic: Run every 1 hour for 5 minutes unless halted by high potentiometer value
+  unsigned long currentTime = millis();
+  if (currentTime - lastServoRunTime >= servoInterval && !servoRunning) {
+    servoRunning = true;
+    lastServoRunTime = currentTime; // Update the last run time
+    digitalWrite(RELAYPIN, HIGH);   // Turn ON the relay to enable servo power
+    Serial.println("Starting servo motor operation...");
+  }
+
+  if (servoRunning) {
+    if (potValue > 350) {  // Halt if potentiometer value is "huge"
+      servoRunning = false;
+      digitalWrite(RELAYPIN, LOW);  // Turn OFF the relay to disable servo power
+      Serial.println("Servo halted due to high potentiometer value.");
+    } else if (currentTime - lastServoRunTime >= servoRunDuration) {
+      servoRunning = false; // Stop the servo after 5 minutes
+      digitalWrite(RELAYPIN, LOW);  // Turn OFF the relay to disable servo power
+      Serial.println("Servo operation completed.");
+    } else {
+      // Oscillate the servo between 0° and 180°
+      if (currentTime - lastServoUpdateTime >= servoStepDelay) {
+        lastServoUpdateTime = currentTime;
+        static int currentAngle = 0; // Static variable to track current angle
+
+        if (servoDirectionUp) {
+          currentAngle += 10; // Increase angle
+          if (currentAngle >= 180) {
+            currentAngle = 180;
+            servoDirectionUp = false; // Change direction to down
+          }
+        } else {
+          currentAngle -= 10; // Decrease angle
+          if (currentAngle <= 0) {
+            currentAngle = 0;
+            servoDirectionUp = true; // Change direction to up
+          }
+        }
+
+        wateringServo.write(currentAngle); // Set the servo position
+        Serial.print("Servo Angle: ");
+        Serial.println(currentAngle);
+      }
+    }
+  } else {
+    wateringServo.write(0); // Ensure servo is in a default state when not running
+    digitalWrite(RELAYPIN, LOW); // Keep the relay OFF to save power
+  }
 
   // Display temperature and humidity on the LCD screen
   lcd.clear();
@@ -62,16 +118,16 @@ void loop() {
   lcd.print("Humidity: " + String(humidity) + " %");
   
   // Motion detection with PIR sensor
-  val = digitalRead(PIRPIN);  // Read PIR sensor state
-  if (val == HIGH) {           // If motion is detected
-    digitalWrite(BUZZERPIN, HIGH);  // Turn on the buzzer
-    if (pirState == LOW) {     // Only print on state change
+  int pirValue = digitalRead(PIRPIN);  // Read PIR sensor state
+  if (pirValue == HIGH) {              // If motion is detected
+    digitalWrite(BUZZERPIN, HIGH);     // Turn on the buzzer
+    if (pirState == LOW) {             // Only print on state change
       Serial.println("Motion detected!");
       pirState = HIGH;
     }
-  } else {                     // If no motion is detected
-    digitalWrite(BUZZERPIN, LOW);   // Turn off the buzzer
-    if (pirState == HIGH) {    // Only print on state change
+  } else {                             // If no motion is detected
+    digitalWrite(BUZZERPIN, LOW);      // Turn off the buzzer
+    if (pirState == HIGH) {            // Only print on state change
       Serial.println("Motion ended!");
       pirState = LOW;
     }
@@ -84,10 +140,7 @@ void loop() {
   Serial.print(humidity);
   Serial.print(" %, Potentiometer: ");
   Serial.print(potValue);
-  Serial.print(" (Servo Angle: ");
-  Serial.print(servoAngle);
-  Serial.println(")");
+  Serial.println();
 
-  // Wait for a second before repeating
-  delay(1000);  // Delay for 1 second
+  delay(100);  // Delay for 100ms for stable updates
 }
