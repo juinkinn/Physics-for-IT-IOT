@@ -2,6 +2,8 @@
 #include <LiquidCrystal_I2C.h>
 #include <DHT.h>
 #include <ESP32Servo.h>   
+#include <WiFi.h>
+#include <PubSubClient.h>
 
 #define DHTPIN 4            // DHT22 pin (temperature and humidity)
 #define DHTTYPE DHT22       
@@ -13,9 +15,18 @@
 #define LIGHTPIN 34         // Light sensor pin (analog input)
 #define LEDPIN 27           // LED pin (digital output)
 
+const char* ssid = "Wokwi-GUEST";
+const char* password = "";
+
+//***Set server***
+const char* mqttServer = "broker.hivemq.com"; 
+int port = 1883;
+
 DHT dht(DHTPIN, DHTTYPE);
 LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD address
 Servo wateringServo;
+WiFiClient wifiClient;
+PubSubClient mqttClient(wifiClient);
 
 int pirState = LOW;
 unsigned long lastServoRunTime = 0;      // Stores the last time the servo was activated
@@ -29,9 +40,55 @@ bool servoDirectionUp = true;  // Direction of servo movement (up or down)
 const float GAMMA = 0.7;       // Gamma value for the photoresistor
 const float RL10 = 50;         // Resistance of LDR at 10 lux in kilo-ohms
 
+void wifiConnect() {
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println(" Connected!");
+}
+
+void mqttConnect() {
+  while(!mqttClient.connected()) {
+    Serial.println("Attemping MQTT connection...");
+    String clientId = "ESP32Client-";
+    clientId += String(random(0xffff), HEX);
+    if(mqttClient.connect(clientId.c_str())) {
+      Serial.println("connected");
+
+      //***Subscribe all topic you need***
+      mqttClient.subscribe("/wateringTKMQ/temp");
+      mqttClient.subscribe("/wateringTKMQ/humid");
+     
+    }
+    else {
+      Serial.println("try again in 5 seconds");
+      delay(5000);
+    }
+  }
+}
+
+//MQTT Receiver
+void callback(char* topic, byte* message, unsigned int length) {
+  Serial.println(topic);
+  String strMsg;
+  for(int i=0; i<length; i++) {
+    strMsg += (char)message[i];
+  }
+  Serial.println(strMsg);
+
+  //***Code here to process the received package***
+
+}
+
 void setup() {
   Serial.begin(115200);
-  
+  wifiConnect();
+  mqttClient.setServer(mqttServer, port);
+  mqttClient.setCallback(callback);
+  mqttClient.setKeepAlive( 90 );
+
   lcd.init();
   lcd.backlight();
 
@@ -50,9 +107,39 @@ void setup() {
 }
 
 void loop() {
+  if(!mqttClient.connected()) {
+    mqttConnect();
+  }
+  mqttClient.loop();
+
   // Read temperature and humidity from the DHT11 sensor
   float temperature = dht.readTemperature();
   float humidity = dht.readHumidity();
+
+  // Publish temperature and humidity to MQTT
+  char tempBuffer[50];
+  char humidBuffer[50];
+
+  // Convert temperature and humidity to string
+  snprintf(tempBuffer, sizeof(tempBuffer), "%.2f", temperature);
+  snprintf(humidBuffer, sizeof(humidBuffer), "%.2f", humidity);
+
+  // Publish to respective topics
+  mqttClient.publish("/wateringTKMQ/temp", tempBuffer);
+  Serial.println("Published temperature data.");
+
+  mqttClient.publish("/wateringTKMQ/humid", humidBuffer);
+  Serial.println("Published humidity data.");
+
+
+  // Display temperature, humidity, and light levels on the LCD screen
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Temp: " + String(temperature) + " C");
+  delay(2000);
+  lcd.setCursor(0, 0);
+  lcd.print("Humid: " + String(humidity) + " %");
+  delay(2000);
 
   // Read potentiometer value and map it to a servo angle (0 to 180 degrees)
   int potValue = analogRead(POTPIN);
@@ -119,15 +206,6 @@ void loop() {
     digitalWrite(LEDPIN, LOW); // Turn off the LED
     Serial.println("Sufficient light detected. LED turned OFF.");
   }
-
-  // Display temperature, humidity, and light levels on the LCD screen
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Temp: " + String(temperature) + " C");
-  delay(2000);
-  lcd.setCursor(0, 0);
-  lcd.print("Humid: " + String(humidity) + " %");
-  delay(2000);
   
   // Motion detection with PIR sensor
   int pirValue = digitalRead(PIRPIN);  // Read PIR sensor state
