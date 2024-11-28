@@ -1,52 +1,49 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <DHT.h>
-#include <ESP32Servo.h>   // Correct library for ESP32
+#include <ESP32Servo.h>   
 
-#define DHTPIN 4            // DHT11 pin (temperature and humidity)
-#define DHTTYPE DHT11       // DHT11 type
+#define DHTPIN 4            // DHT22 pin (temperature and humidity)
+#define DHTTYPE DHT22       
 #define POTPIN 35           // Potentiometer pin (for controlling servo)
 #define PIRPIN 32           // PIR motion sensor pin
-#define BUZZERPIN 23        // Buzzer pin for motion detection alert
+#define BUZZERPIN 23        // Buzzer pin 
 #define SERVOPIN 25         // Servo motor control pin (PWM)
 #define RELAYPIN 22         // Relay pin for controlling servo power
 #define LIGHTPIN 34         // Light sensor pin (analog input)
 #define LEDPIN 27           // LED pin (digital output)
 
 DHT dht(DHTPIN, DHTTYPE);
-LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD address, adjust to match your device
+LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD address
 Servo wateringServo;
 
 int pirState = LOW;
 unsigned long lastServoRunTime = 0;      // Stores the last time the servo was activated
 unsigned long lastServoUpdateTime = 0;   // Tracks time for servo oscillation steps
-const unsigned long servoInterval = 300;  // 1 hour in milliseconds
-const unsigned long servoRunDuration = 300000;  // 5 minutes in milliseconds
-const unsigned long servoStepDelay = 100;  // Delay between servo movements (in ms)
+const unsigned long servoInterval = 3000;  // Every 3s servo runs
+const unsigned long servoRunDuration = 3000;  // 3s, Running duration of servo
+const unsigned long servoStepDelay = 10;  // Delay between servo movements (in ms)
 bool servoRunning = false;
 bool servoDirectionUp = true;  // Direction of servo movement (up or down)
 
+const float GAMMA = 0.7;       // Gamma value for the photoresistor
+const float RL10 = 50;         // Resistance of LDR at 10 lux in kilo-ohms
+
 void setup() {
-  // Initialize serial communication for debugging
   Serial.begin(115200);
   
-  // Initialize LCD
   lcd.init();
   lcd.backlight();
-  
-  // Initialize DHT11 sensor
+
   dht.begin();
 
-  // Initialize Servo motor
   wateringServo.attach(SERVOPIN);
 
-  // Set pin modes for PIR sensor, Buzzer, Relay, and LED
   pinMode(PIRPIN, INPUT);
   pinMode(BUZZERPIN, OUTPUT);
   pinMode(RELAYPIN, OUTPUT);
   pinMode(LEDPIN, OUTPUT);
 
-  // Initial state of Relay, Buzzer, and LED is OFF
   digitalWrite(RELAYPIN, LOW);
   digitalWrite(BUZZERPIN, LOW);
   digitalWrite(LEDPIN, HIGH);
@@ -56,17 +53,10 @@ void loop() {
   // Read temperature and humidity from the DHT11 sensor
   float temperature = dht.readTemperature();
   float humidity = dht.readHumidity();
-  
-  // Check if the DHT11 readings are valid (not NaN)
-  if (isnan(temperature) || isnan(humidity)) {
-    Serial.println("Failed to read from DHT sensor!");
-    return; // Exit if sensor reading failed
-  }
 
   // Read potentiometer value and map it to a servo angle (0 to 180 degrees)
   int potValue = analogRead(POTPIN);
 
-  // Servo motor logic: Run every 1 hour for 5 minutes unless halted by high potentiometer value
   unsigned long currentTime = millis();
   if (currentTime - lastServoRunTime >= servoInterval && !servoRunning) {
     servoRunning = true;
@@ -76,12 +66,12 @@ void loop() {
   }
 
   if (servoRunning) {
-    if (potValue > 350) {  // Halt if potentiometer value is "huge"
+    if (potValue > 350) {  // Halt if potentiometer value is high (rain detected)
       servoRunning = false;
       digitalWrite(RELAYPIN, LOW);  // Turn OFF the relay to disable servo power
       Serial.println("Servo halted due to high potentiometer value.");
     } else if (currentTime - lastServoRunTime >= servoRunDuration) {
-      servoRunning = false; // Stop the servo after 5 minutes
+      servoRunning = false; // Stop the servo after some time
       digitalWrite(RELAYPIN, LOW);  // Turn OFF the relay to disable servo power
       Serial.println("Servo operation completed.");
     } else {
@@ -114,12 +104,15 @@ void loop() {
     digitalWrite(RELAYPIN, LOW); // Keep the relay OFF to save power
   }
 
-  // Read light sensor value
-  int lightLevel = analogRead(LIGHTPIN);
+  // Read light sensor value (photoresistor)
+  float analogValue = analogRead(LIGHTPIN);
+  float voltage = analogValue / 4096. * 5;  // ESP32 ADC resolution is 12-bit (0-4095)
+  float resistance = 2000 * voltage / (1 - voltage / 5);  // Calculate resistance in ohms
+  float lux = pow(RL10 * 1e3 * pow(10, GAMMA) / resistance, (1 / GAMMA)); // Calculate lux
 
   // Turn on LED if light level is low
-  int lightThreshold = 100; // Define a threshold for low light (adjust as needed)
-  if (lightLevel < lightThreshold) {
+  int lightThreshold = 100; // Threshold for low light
+  if (lux < lightThreshold) {
     digitalWrite(LEDPIN, HIGH); // Turn on the LED
     Serial.println("Low light detected. LED turned ON.");
   } else {
@@ -127,24 +120,28 @@ void loop() {
     Serial.println("Sufficient light detected. LED turned OFF.");
   }
 
-  // Display temperature and humidity on the LCD screen
+  // Display temperature, humidity, and light levels on the LCD screen
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Temp: " + String(temperature) + " C");
-  lcd.setCursor(0, 1);
-  lcd.print("Humidity: " + String(humidity) + " %");
+  delay(2000);
+  lcd.setCursor(0, 0);
+  lcd.print("Humid: " + String(humidity) + " %");
+  delay(2000);
   
   // Motion detection with PIR sensor
   int pirValue = digitalRead(PIRPIN);  // Read PIR sensor state
   if (pirValue == HIGH) {              // If motion is detected
-    digitalWrite(BUZZERPIN, HIGH);     // Turn on the buzzer
-    if (pirState == LOW) {             // Only print on state change
+    tone(BUZZERPIN, 300);     // Turn on the buzzer
+    if (pirState == LOW) {             
       Serial.println("Motion detected!");
       pirState = HIGH;
     }
+    delay(1000);
+    noTone(BUZZERPIN);
   } else {                             // If no motion is detected
-    digitalWrite(BUZZERPIN, LOW);      // Turn off the buzzer
-    if (pirState == HIGH) {            // Only print on state change
+    noTone(BUZZERPIN);      // Turn off the buzzer
+    if (pirState == HIGH) {           
       Serial.println("Motion ended!");
       pirState = LOW;
     }
@@ -157,8 +154,8 @@ void loop() {
   Serial.print(humidity);
   Serial.print(" %, Potentiometer: ");
   Serial.print(potValue);
-  Serial.print(", Light Level: ");
-  Serial.println(lightLevel);
+  Serial.print(", Lux: ");
+  Serial.println(lux);
 
-  delay(100);  // Delay for 100ms for stable updates
+  delay(100);  
 }
