@@ -46,6 +46,13 @@
       "top": 200,
       "left": 450,
       "attrs": { "voltage": "12" }
+    },
+    {
+      "type": "wokwi-biaxial-stepper",
+      "id": "stepper1",
+      "top": 380.36,
+      "left": -448.2,
+      "attrs": {}
     }
   ],
   "connections": [
@@ -98,7 +105,11 @@
     [ "servo1:V+", "bb1:60t.c", "", [ "$bb" ] ],
     [ "servo1:PWM", "bb1:60t.d", "", [ "$bb" ] ],
     [ "r1:1", "bb1:42t.c", "", [ "$bb" ] ],
-    [ "r1:2", "bb1:42b.g", "", [ "$bb" ] ]
+    [ "r1:2", "bb1:42b.g", "", [ "$bb" ] ],
+    [ "stepper1:B2-", "esp:D3", "green", [ "h0" ] ],
+    [ "stepper1:B2+", "esp:D2", "green", [ "h0" ] ],
+    [ "stepper1:A2+", "esp:13", "green", [ "h0" ] ],
+    [ "stepper1:A2-", "esp:14", "green", [ "h0" ] ]
   ],
   "dependencies": {}
 }

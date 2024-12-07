@@ -4,6 +4,7 @@
 #include <ESP32Servo.h>   
 #include <WiFi.h>
 #include <PubSubClient.h>
+#include <AccelStepper.h>
 
 #define DHTPIN 4            // DHT22 pin (temperature and humidity)
 #define DHTTYPE DHT22       
@@ -27,6 +28,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD address
 Servo wateringServo;
 WiFiClient wifiClient;
 PubSubClient mqttClient(wifiClient);
+AccelStepper fanStepper(AccelStepper::FULL4WIRE, 3, 2, 13, 14);
 
 int pirState = LOW;
 unsigned long lastServoRunTime = 0;      // Stores the last time the servo was activated
@@ -83,6 +85,7 @@ void callback(char* topic, byte* message, unsigned int length) {
 }
 
 void setup() {
+  fanStepper.setMaxSpeed(8000);
   Serial.begin(115200);
   wifiConnect();
   mqttClient.setServer(mqttServer, port);
@@ -140,6 +143,15 @@ void loop() {
   lcd.setCursor(0, 0);
   lcd.print("Humid: " + String(humidity) + " %");
   delay(2000);
+
+  // Enable fan
+  if (temperature > 30.0) {
+    fanStepper.setSpeed(3000);
+    fanStepper.runSpeed();
+  }
+  else {
+    fanStepper.stop();
+  }
 
   // Read potentiometer value and map it to a servo angle (0 to 180 degrees)
   int potValue = analogRead(POTPIN);
