@@ -15,6 +15,7 @@
 #define RELAYPIN 22         // Relay pin for controlling servo power
 #define LIGHTPIN 34         // Light sensor pin (analog input)
 #define LEDPIN 27           // LED pin (digital output)
+#define SWITCHPIN 33
 
 const char* ssid = "Wokwi-GUEST";
 const char* password = "";
@@ -32,10 +33,8 @@ AccelStepper fanStepper(AccelStepper::FULL4WIRE, 3, 2, 13, 14);
 
 int pirState = LOW;
 unsigned long lastServoRunTime = 0;      // Stores the last time the servo was activated
-unsigned long lastServoUpdateTime = 0;   // Tracks time for servo oscillation steps
 const unsigned long servoInterval = 3000;  // Every 3s servo runs
 const unsigned long servoRunDuration = 30000;  // 30s, Running duration of servo
-const unsigned long servoStepDelay = 10;  // Delay between servo movements (in ms)
 bool servoRunning = false;
 bool servoDirectionUp = true;  // Direction of servo movement (up or down)
 
@@ -103,6 +102,7 @@ void setup() {
   pinMode(BUZZERPIN, OUTPUT);
   pinMode(RELAYPIN, OUTPUT);
   pinMode(LEDPIN, OUTPUT);
+  pinMode(SWITCHPIN, INPUT_PULLUP);
 
   digitalWrite(RELAYPIN, LOW);
   digitalWrite(BUZZERPIN, LOW);
@@ -145,12 +145,15 @@ void loop() {
   delay(2000);
 
   // Enable fan
-  if (temperature > 30.0) {
+  bool manualOverride = digitalRead(SWITCHPIN);
+  if (temperature > 30.0 || manualOverride) {
     fanStepper.setSpeed(3000);
     fanStepper.runSpeed();
+    Serial.println("Fan is on");
   }
   else {
     fanStepper.stop();
+    Serial.println("Fan is off");
   }
 
   // Read potentiometer value and map it to a servo angle (0 to 180 degrees)
@@ -173,30 +176,26 @@ void loop() {
       servoRunning = false; // Stop the servo after some time
       digitalWrite(RELAYPIN, LOW);  // Turn OFF the relay to disable servo power
       Serial.println("Servo operation completed.");
-    } else {
-      // Oscillate the servo between 0° and 180°
-      if (currentTime - lastServoUpdateTime >= servoStepDelay) {
-        lastServoUpdateTime = currentTime;
+    }  else {
         static int currentAngle = 0; // Static variable to track current angle
-
+        // Oscillate the servo between 0° and 180° without time steps
         if (servoDirectionUp) {
-          currentAngle += 10; // Increase angle
-          if (currentAngle >= 180) {
-            currentAngle = 180;
-            servoDirectionUp = false; // Change direction to down
-          }
+            currentAngle += 10; // Increase angle
+            if (currentAngle >= 180) {
+                currentAngle = 180;
+                servoDirectionUp = false; // Change direction to down
+            }
         } else {
-          currentAngle -= 10; // Decrease angle
-          if (currentAngle <= 0) {
-            currentAngle = 0;
-            servoDirectionUp = true; // Change direction to up
-          }
+            currentAngle -= 10; // Decrease angle
+            if (currentAngle <= 0) {
+                currentAngle = 0;
+                servoDirectionUp = true; // Change direction to up
+            }
         }
-
         wateringServo.write(currentAngle); // Set the servo position
         Serial.print("Servo Angle: ");
         Serial.println(currentAngle);
-      }
+        delay(10); // Small delay for smooth movement
     }
   } else {
     wateringServo.write(0); // Ensure servo is in a default state when not running

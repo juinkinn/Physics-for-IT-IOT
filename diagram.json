@@ -53,7 +53,8 @@
       "left": -448.2,
       "attrs": {}
     },
-    { "type": "wokwi-potentiometer", "id": "pot1", "top": 123.5, "left": -67.4, "attrs": {} }
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 123.5, "left": -67.4, "attrs": {} },
+    { "type": "wokwi-slide-switch", "id": "sw1", "top": 378.8, "left": -284.9, "attrs": {} }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
@@ -109,7 +110,9 @@
     [ "pot1:VCC", "bb1:25b.g", "", [ "$bb" ] ],
     [ "pot1:GND", "bb1:bn.18", "black", [ "v0" ] ],
     [ "pot1:VCC", "bb1:bp.20", "red", [ "v0" ] ],
-    [ "pot1:SIG", "esp:35", "purple", [ "v105.6", "h-0.4", "v57.6" ] ]
+    [ "pot1:SIG", "esp:35", "purple", [ "v105.6", "h-0.4", "v57.6" ] ],
+    [ "sw1:1", "esp:GND.1", "black", [ "v0" ] ],
+    [ "sw1:2", "esp:33", "green", [ "v0", "h153.7", "v-38.4" ] ]
   ],
   "dependencies": {}
 }
