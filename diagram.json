@@ -53,13 +53,7 @@
       "left": -448.2,
       "attrs": {}
     },
-    {
-      "type": "wokwi-slide-potentiometer",
-      "id": "pot1",
-      "top": -33.4,
-      "left": -58.6,
-      "attrs": { "travelLength": "30" }
-    }
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 123.5, "left": -67.4, "attrs": {} }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
@@ -110,9 +104,12 @@
     [ "servo1:PWM", "bb1:60t.d", "", [ "$bb" ] ],
     [ "r1:1", "bb1:42t.c", "", [ "$bb" ] ],
     [ "r1:2", "bb1:42b.g", "", [ "$bb" ] ],
-    [ "pot1:VCC", "bb1:bp.16", "red", [ "h0" ] ],
-    [ "pot1:GND", "bb1:bn.15", "black", [ "v-48", "h-225.2" ] ],
-    [ "pot1:SIG", "esp:35", "purple", [ "h0", "v316" ] ]
+    [ "pot1:GND", "bb1:23b.g", "", [ "$bb" ] ],
+    [ "pot1:SIG", "bb1:24b.g", "", [ "$bb" ] ],
+    [ "pot1:VCC", "bb1:25b.g", "", [ "$bb" ] ],
+    [ "pot1:GND", "bb1:bn.18", "black", [ "v0" ] ],
+    [ "pot1:VCC", "bb1:bp.20", "red", [ "v0" ] ],
+    [ "pot1:SIG", "esp:35", "purple", [ "v105.6", "h-0.4", "v57.6" ] ]
   ],
   "dependencies": {}
 }
