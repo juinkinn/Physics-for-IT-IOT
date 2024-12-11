@@ -15,7 +15,6 @@
       "left": 274.4,
       "attrs": { "pins": "i2c" }
     },
-    { "type": "wokwi-potentiometer", "id": "pot1", "top": 113.9, "left": -57.8, "attrs": {} },
     { "type": "wokwi-dht22", "id": "dht1", "top": 96.3, "left": -226.2, "attrs": {} },
     {
       "type": "wokwi-photoresistor-sensor",
@@ -53,6 +52,13 @@
       "top": 380.36,
       "left": -448.2,
       "attrs": {}
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": -33.4,
+      "left": -58.6,
+      "attrs": { "travelLength": "30" }
     }
   ],
   "connections": [
@@ -69,9 +75,6 @@
     [ "ldr1:VCC", "bb1:bp.9", "red", [ "h0" ] ],
     [ "ldr1:GND", "bb1:bn.5", "black", [ "h0" ] ],
     [ "ldr1:AO", "esp:34", "purple", [ "h0" ] ],
-    [ "pot1:GND", "bb1:bn.19", "black", [ "v0" ] ],
-    [ "pot1:VCC", "bb1:bp.22", "red", [ "v0" ] ],
-    [ "pot1:SIG", "esp:35", "orange", [ "v0" ] ],
     [ "relay1:VCC", "bb1:bp.31", "red", [ "h0" ] ],
     [ "relay1:GND", "bb1:bn.32", "black", [ "h0" ] ],
     [ "esp:26", "relay1:IN", "green", [ "h0" ] ],
@@ -87,14 +90,15 @@
     [ "servo1:PWM", "esp:25", "magenta", [ "h-201.6", "v307.4" ] ],
     [ "bb1:41t.c", "bb1:bn.35", "black", [ "v0" ] ],
     [ "r1:2", "esp:27", "green", [ "v76.8", "h200.4", "v19.2" ] ],
+    [ "stepper1:B2-", "esp:D3", "green", [ "h0" ] ],
+    [ "stepper1:B2+", "esp:D2", "green", [ "h0" ] ],
+    [ "stepper1:A2+", "esp:13", "green", [ "h0" ] ],
+    [ "stepper1:A2-", "esp:14", "green", [ "h0" ] ],
     [ "pir1:VCC", "bb1:33b.i", "", [ "$bb" ] ],
     [ "pir1:OUT", "bb1:34b.i", "", [ "$bb" ] ],
     [ "pir1:GND", "bb1:35b.i", "", [ "$bb" ] ],
     [ "led1:A", "bb1:42t.b", "", [ "$bb" ] ],
     [ "led1:C", "bb1:41t.b", "", [ "$bb" ] ],
-    [ "pot1:GND", "bb1:24b.f", "", [ "$bb" ] ],
-    [ "pot1:SIG", "bb1:25b.f", "", [ "$bb" ] ],
-    [ "pot1:VCC", "bb1:26b.f", "", [ "$bb" ] ],
     [ "dht1:VCC", "bb1:5b.i", "", [ "$bb" ] ],
     [ "dht1:SDA", "bb1:6b.i", "", [ "$bb" ] ],
     [ "dht1:NC", "bb1:7b.i", "", [ "$bb" ] ],
@@ -106,10 +110,9 @@
     [ "servo1:PWM", "bb1:60t.d", "", [ "$bb" ] ],
     [ "r1:1", "bb1:42t.c", "", [ "$bb" ] ],
     [ "r1:2", "bb1:42b.g", "", [ "$bb" ] ],
-    [ "stepper1:B2-", "esp:D3", "green", [ "h0" ] ],
-    [ "stepper1:B2+", "esp:D2", "green", [ "h0" ] ],
-    [ "stepper1:A2+", "esp:13", "green", [ "h0" ] ],
-    [ "stepper1:A2-", "esp:14", "green", [ "h0" ] ]
+    [ "pot1:VCC", "bb1:bp.16", "red", [ "h0" ] ],
+    [ "pot1:GND", "bb1:bn.15", "black", [ "v-48", "h-225.2" ] ],
+    [ "pot1:SIG", "esp:35", "purple", [ "h0", "v316" ] ]
   ],
   "dependencies": {}
 }
