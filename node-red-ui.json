@@ -1,11 +1,1027 @@
 [
     {
+        "id": "e371c0e53bfc7ef9",
+        "type": "tab",
+        "label": "Sign Up ",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "beafa71c97930f47",
         "type": "tab",
         "label": "Login",
         "disabled": false,
         "info": "",
         "env": []
+    },
+    {
+        "id": "a535bf2abce5a503",
+        "type": "tab",
+        "label": "Temperature and Humidity",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dba317d8a3fb3010",
+        "type": "tab",
+        "label": "Status",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "892aaae7182dce6a",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "5ba352c897b8b12c",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5ba352c897b8b12c",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "12e79c5a1392b0c4",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#02aaf2",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#02aaf2",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#02aaf2",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#43c6fd",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#02aaf2",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "48c8904947e5f631",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a8fb29437dafb52b",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "7237b0658d34ce6f",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5d4133c9155fdfa4",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "7237b0658d34ce6f",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6587bb76865c6721",
+        "type": "ui_tab",
+        "name": "SignUpTab",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1853bdb01bca2068",
+        "type": "ui_group",
+        "name": "Trang Đăng Ký",
+        "tab": "6587bb76865c6721",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "09ce1fd16ace9a83",
+        "type": "ui_tab",
+        "name": "StatusTab",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "b109a900dc0b4299",
+        "type": "ui_tab",
+        "name": "LogInTab",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c671bce3724eda32",
+        "type": "ui_group",
+        "name": "Trang Đăng Nhập",
+        "tab": "b109a900dc0b4299",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a4e98edf4769eb4d",
+        "type": "ui_group",
+        "name": "Trang Quản Lý",
+        "tab": "09ce1fd16ace9a83",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "acacd5143ed5d34f",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.mqtt-dashboard.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "358779d1e87ddd82",
+        "type": "ui_group",
+        "name": "History",
+        "tab": "cf82fb25652dc4a2",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7f808b69393948b7",
+        "type": "ui_group",
+        "name": "Login",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c64b783c42bdedda",
+        "type": "ui_group",
+        "name": "Logout",
+        "tab": "cf82fb25652dc4a2",
+        "order": 6,
+        "disp": true,
+        "width": "2",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1bd5cf0ad5cfca6e",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "4460ce5202b9df5c",
+        "type": "ui_group",
+        "name": "Temperature and humidity",
+        "tab": "cf82fb25652dc4a2",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9182e764bc2d1254",
+        "type": "ui_group",
+        "name": "chart",
+        "tab": "cf82fb25652dc4a2",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bbe2d1663c57724d",
+        "type": "ui_group",
+        "name": "Control",
+        "tab": "cf82fb25652dc4a2",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9d9f163294fb9227",
+        "type": "ui_group",
+        "name": "Sign in",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cf82fb25652dc4a2",
+        "type": "ui_tab",
+        "name": "Smart locker LOL tracking",
+        "icon": "settings",
+        "order": 6,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "8a708b2f28e83c56",
+        "type": "ui_tab",
+        "name": "LogOutTab",
+        "icon": "dashboard",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ee55287e84322ba8",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "8a708b2f28e83c56",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "400f17b224da8621",
+        "type": "ui_tab",
+        "name": "SignUpTab",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d5c436054d988ce9",
+        "type": "ui_group",
+        "name": "Trang Đăng Ký",
+        "tab": "400f17b224da8621",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e25fbf8bf41181a6",
+        "type": "ui_tab",
+        "name": "StatusTab",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "8ea12345b2d33ed0",
+        "type": "ui_tab",
+        "name": "LogInTab",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "8e6bc74c871db5e8",
+        "type": "ui_group",
+        "name": "Trang Đăng Nhập",
+        "tab": "8ea12345b2d33ed0",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ca4de4f1fbb01085",
+        "type": "ui_group",
+        "name": "Trang Quản Lý",
+        "tab": "e25fbf8bf41181a6",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5e5231a0d25397df",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.mqtt-dashboard.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "12111436f1e3fc07",
+        "type": "ui_group",
+        "name": "History",
+        "tab": "afef167a27687abb",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f8864be9c8fccaeb",
+        "type": "ui_group",
+        "name": "Login",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8f723c0be1f93bcd",
+        "type": "ui_group",
+        "name": "Logout",
+        "tab": "afef167a27687abb",
+        "order": 6,
+        "disp": true,
+        "width": "2",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1fafc09964ec5a6f",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "bf6db9d90ec7a4e5",
+        "type": "ui_group",
+        "name": "Temperature and humidity",
+        "tab": "afef167a27687abb",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2c4b226e8e819202",
+        "type": "ui_group",
+        "name": "chart",
+        "tab": "afef167a27687abb",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5ce9ee3403a8972c",
+        "type": "ui_group",
+        "name": "Control",
+        "tab": "afef167a27687abb",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9f111a7e1b7caa2d",
+        "type": "ui_group",
+        "name": "Sign in",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "afef167a27687abb",
+        "type": "ui_tab",
+        "name": "Smart locker LOL tracking",
+        "icon": "settings",
+        "order": 6,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "bc654fdfb7926494",
+        "type": "ui_tab",
+        "name": "LogOutTab",
+        "icon": "dashboard",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "42ac839944e361ae",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "bc654fdfb7926494",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "994d90d6fbc5a06e",
+        "type": "mongodb3",
+        "uri": "mongodb+srv://anhquan2004162:anhquan162@cluster0.ryy4wff.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        "name": "",
+        "options": "",
+        "parallelism": "-1"
+    },
+    {
+        "id": "e44eed23bfcbd07f",
+        "type": "mongodb3",
+        "uri": "mongodb+srv://hmquan22:iB6kbwh8wJkQrdku@cluster0.asm4k.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        "name": "",
+        "options": "",
+        "parallelism": "-1"
+    },
+    {
+        "id": "c5a4c487afea4679",
+        "type": "mongodb3",
+        "uri": "mongodb+srv://hmquan22:nodered@cluster0.xvm7n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        "name": "",
+        "options": "",
+        "parallelism": "-1"
+    },
+    {
+        "id": "f6ca4f4080524182",
+        "type": "mongodb3",
+        "uri": "mongodb+srv://hmquan22:PWTRXijl4wl5rViN@cluster0.d03yv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        "name": "",
+        "options": "",
+        "parallelism": "-1"
+    },
+    {
+        "id": "659fdf5b0b069cd0",
+        "type": "mongodb3",
+        "uri": "mongodb+srv://anhquan2004162:anhquan162@cluster0.ryy4wff.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        "name": "",
+        "options": "",
+        "parallelism": "-1"
+    },
+    {
+        "id": "d502d27466fdea61",
+        "type": "mongodb3",
+        "uri": "mongodb+srv://juinkinn:22127478@iot.8xeuq.mongodb.net/?retryWrites=true&w=majority&appName=iot",
+        "name": "IOT",
+        "options": "",
+        "parallelism": "-1"
+    },
+    {
+        "id": "c22510c506ab410d",
+        "type": "ui_tab",
+        "name": " Event Logs",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "5da5558bfe8f957d",
+        "type": "ui_group",
+        "name": " Event Logs",
+        "tab": "c22510c506ab410d",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "disabled": false,
+        "hidden": false,
+        "className": ""
+    },
+    {
+        "id": "ba471fd022dcdee4",
+        "type": "ui_group",
+        "name": "Logs",
+        "tab": "c22510c506ab410d",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4f011e9044a972cb",
+        "type": "ui_group",
+        "name": "My Information",
+        "tab": "c22510c506ab410d",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c5606942bfc42770",
+        "type": "ui_form",
+        "z": "e371c0e53bfc7ef9",
+        "name": "",
+        "label": "Sign Up",
+        "group": "d5c436054d988ce9",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Name",
+                "value": "Name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Username",
+                "value": "Username",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Password",
+                "value": "Password",
+                "type": "password",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Confirm Password",
+                "value": "ConfirmPassword",
+                "type": "password",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "Name": "",
+            "Username": "",
+            "Password": "",
+            "ConfirmPassword": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 60,
+        "y": 100,
+        "wires": [
+            [
+                "23e56b5cdb7a613d"
+            ]
+        ]
+    },
+    {
+        "id": "306dd2df8ed2af59",
+        "type": "ui_ui_control",
+        "z": "e371c0e53bfc7ef9",
+        "name": "",
+        "events": "all",
+        "x": 860,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0e6cdf99fd9c7b9e",
+        "type": "change",
+        "z": "e371c0e53bfc7ef9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"tab\":\t    \"LogInTab\"\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 260,
+        "wires": [
+            [
+                "306dd2df8ed2af59",
+                "0b85fbdbd87ea913"
+            ]
+        ]
+    },
+    {
+        "id": "23e56b5cdb7a613d",
+        "type": "function",
+        "z": "e371c0e53bfc7ef9",
+        "name": "Check password",
+        "func": "if (msg.payload.Password === msg.payload.ConfirmPassword) {\n    msg.payload = {\n        Password: msg.payload.Password,\n        Name: msg.payload.Name,\n        Username: msg.payload.Username\n    };\n    return msg;\n} else {\n    return null; // Stops the flow if passwords do not match\n}\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "eb87695d35f5c884"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "bdf6b01f90e151d2",
+        "type": "comment",
+        "z": "e371c0e53bfc7ef9",
+        "name": "Cần chỗ để lưu data cho sign up",
+        "info": "",
+        "x": 750,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "38a685ead1908e5a",
+        "type": "ui_toast",
+        "z": "e371c0e53bfc7ef9",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 750,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "a32c6b5f8bec1920",
+        "type": "ui_button",
+        "z": "e371c0e53bfc7ef9",
+        "name": "",
+        "group": "d5c436054d988ce9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button switch to login",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 160,
+        "y": 380,
+        "wires": [
+            [
+                "546c37c1d038f218"
+            ]
+        ]
+    },
+    {
+        "id": "546c37c1d038f218",
+        "type": "function",
+        "z": "e371c0e53bfc7ef9",
+        "name": "sign in",
+        "func": "msg.payload = {\n    \"tab\": \"LogInTab\"\n}\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 380,
+        "wires": [
+            [
+                "3a88fbe3f2f28121"
+            ]
+        ]
+    },
+    {
+        "id": "3a88fbe3f2f28121",
+        "type": "ui_ui_control",
+        "z": "e371c0e53bfc7ef9",
+        "name": "To login",
+        "events": "all",
+        "x": 520,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb87695d35f5c884",
+        "type": "mongodb3 in",
+        "z": "e371c0e53bfc7ef9",
+        "service": "_ext_",
+        "configNode": "d502d27466fdea61",
+        "name": "db",
+        "collection": "juinkinn",
+        "operation": "insertOne",
+        "x": 510,
+        "y": 180,
+        "wires": [
+            [
+                "0e6cdf99fd9c7b9e"
+            ]
+        ]
+    },
+    {
+        "id": "0b85fbdbd87ea913",
+        "type": "function",
+        "z": "e371c0e53bfc7ef9",
+        "name": "Signup Success",
+        "func": "msg.payload = 'Signup successfully'\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 80,
+        "wires": [
+            [
+                "38a685ead1908e5a"
+            ]
+        ]
     },
     {
         "id": "131cce685bcf6f24",
@@ -349,31 +1365,912 @@
         "wires": []
     },
     {
-        "id": "8e6bc74c871db5e8",
-        "type": "ui_group",
-        "name": "Trang Đăng Nhập",
-        "tab": "8ea12345b2d33ed0",
+        "id": "d92170aab3f39b94",
+        "type": "mqtt in",
+        "z": "a535bf2abce5a503",
+        "name": "",
+        "topic": "/wateringTKMQ/temp",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "5d4133c9155fdfa4",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 60,
+        "wires": [
+            [
+                "9aed526569cb0f50",
+                "368bfe53368c0940",
+                "95fc786f62535c3f"
+            ]
+        ]
+    },
+    {
+        "id": "9aed526569cb0f50",
+        "type": "debug",
+        "z": "a535bf2abce5a503",
+        "name": "debug temperature",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "368bfe53368c0940",
+        "type": "ui_gauge",
+        "z": "a535bf2abce5a503",
+        "name": "",
+        "group": "a8fb29437dafb52b",
         "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "40",
+        "diff": false,
+        "className": "",
+        "x": 410,
+        "y": 100,
+        "wires": []
     },
     {
-        "id": "d502d27466fdea61",
-        "type": "mongodb3",
-        "uri": "mongodb+srv://juinkinn:22127478@iot.8xeuq.mongodb.net/?retryWrites=true&w=majority&appName=iot",
-        "name": "IOT",
-        "options": "",
-        "parallelism": "-1"
+        "id": "c23350cf304b1837",
+        "type": "mqtt in",
+        "z": "a535bf2abce5a503",
+        "name": "",
+        "topic": "/wateringTKMQ/humid",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "5d4133c9155fdfa4",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "826a5592019e6951",
+                "d8310225fe542de4",
+                "467ca2cd4ef5f568"
+            ]
+        ]
     },
     {
-        "id": "8ea12345b2d33ed0",
-        "type": "ui_tab",
-        "name": "LogInTab",
-        "icon": "dashboard",
+        "id": "826a5592019e6951",
+        "type": "debug",
+        "z": "a535bf2abce5a503",
+        "name": "debug humidity",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d8310225fe542de4",
+        "type": "ui_gauge",
+        "z": "a535bf2abce5a503",
+        "name": "",
+        "group": "a8fb29437dafb52b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "50",
+        "seg2": "70",
+        "diff": false,
+        "className": "",
+        "x": 420,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "22802b876884ed07",
+        "type": "http request",
+        "z": "a535bf2abce5a503",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.openweathermap.org/data/2.5/weather?id=1580578&appid=bdc87536ce16f695eea1f63159c980f5&units=metric",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 290,
+        "y": 380,
+        "wires": [
+            [
+                "e7ed8631a4f5b97a"
+            ]
+        ]
+    },
+    {
+        "id": "130ea0e5187fc5ed",
+        "type": "inject",
+        "z": "a535bf2abce5a503",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 380,
+        "wires": [
+            [
+                "22802b876884ed07"
+            ]
+        ]
+    },
+    {
+        "id": "e7ed8631a4f5b97a",
+        "type": "json",
+        "z": "a535bf2abce5a503",
+        "name": "temp",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 470,
+        "y": 480,
+        "wires": [
+            [
+                "5236481de1417e80",
+                "48b7f70139480ffa"
+            ]
+        ]
+    },
+    {
+        "id": "a411cbd4a883cbe3",
+        "type": "inject",
+        "z": "a535bf2abce5a503",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 520,
+        "wires": [
+            [
+                "20742b9e37068722"
+            ]
+        ]
+    },
+    {
+        "id": "20742b9e37068722",
+        "type": "http request",
+        "z": "a535bf2abce5a503",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/update?api_key=11K54XX95HWOFJD1&field1=27",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 270,
+        "y": 540,
+        "wires": [
+            [
+                "48b7f70139480ffa"
+            ]
+        ]
+    },
+    {
+        "id": "48b7f70139480ffa",
+        "type": "debug",
+        "z": "a535bf2abce5a503",
+        "name": "debug 20",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "5236481de1417e80",
+        "type": "function",
+        "z": "a535bf2abce5a503",
+        "name": "function 8",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f3a3f415fe3d00ce",
+        "type": "ui_button",
+        "z": "a535bf2abce5a503",
+        "name": "Logout",
+        "group": "a8fb29437dafb52b",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Logout",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 70,
+        "y": 660,
+        "wires": [
+            [
+                "7a0038fd4b6a2bd3"
+            ]
+        ]
+    },
+    {
+        "id": "7a0038fd4b6a2bd3",
+        "type": "function",
+        "z": "a535bf2abce5a503",
+        "name": "Logout",
+        "func": "msg.payload = {\n    \"tab\": \"LogInTab\"\n}\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 660,
+        "wires": [
+            [
+                "ccabc0b7b612e9be"
+            ]
+        ]
+    },
+    {
+        "id": "ccabc0b7b612e9be",
+        "type": "ui_ui_control",
+        "z": "a535bf2abce5a503",
+        "name": "Logout",
+        "events": "all",
+        "x": 450,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "512e65d349945ad1",
+        "type": "thingspeak42",
+        "z": "a535bf2abce5a503",
+        "name": "",
+        "delay": "15",
+        "topic1": "Temperature",
+        "topic2": "Humidity",
+        "topic3": "",
+        "topic4": "",
+        "topic5": "",
+        "topic6": "",
+        "topic7": "",
+        "topic8": "",
+        "endpoint": "https://thingspeak.mathworks.com/",
+        "x": 490,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "95fc786f62535c3f",
+        "type": "change",
+        "z": "a535bf2abce5a503",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Temperature",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "512e65d349945ad1"
+            ]
+        ]
+    },
+    {
+        "id": "467ca2cd4ef5f568",
+        "type": "change",
+        "z": "a535bf2abce5a503",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Humidity",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 270,
+        "y": 180,
+        "wires": [
+            [
+                "512e65d349945ad1"
+            ]
+        ]
+    },
+    {
+        "id": "52f8aa4e95fe35a7",
+        "type": "comment",
+        "z": "dba317d8a3fb3010",
+        "name": "Các nút bật tắt tính năng như trong báo cáo",
+        "info": "",
+        "x": 190,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "9ccd3f9807350420",
+        "type": "ui_toast",
+        "z": "dba317d8a3fb3010",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 670,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "036c8b6dd1df6cee",
+        "type": "ui_toast",
+        "z": "dba317d8a3fb3010",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 670,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d67851692499d38a",
+        "type": "ui_toast",
+        "z": "dba317d8a3fb3010",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 670,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "414547b6ed34ae38",
+        "type": "ui_toast",
+        "z": "dba317d8a3fb3010",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 670,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5654175bf87eeae2",
+        "type": "function",
+        "z": "dba317d8a3fb3010",
+        "name": "Mở/tắt cảm biến",
+        "func": "if (msg.payload == \"true\") {\n    msg.payload = \"on\"\n}\nelse {\n    msg.payload = \"off\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d3e2819793d9da3d",
+        "type": "function",
+        "z": "dba317d8a3fb3010",
+        "name": "Mở/khóa cửa",
+        "func": "//Khóa\nif (msg.payload == \"true\")\n{\n    msg.payload = \"Door locked\"\n}\n//Mở\nelse{\n    msg.payload = \"Door open\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 580,
+        "wires": [
+            [
+                "e463f64f6240a2fc",
+                "49342e825ec857a1",
+                "5eb3cc027e3a4532",
+                "e1bbf721ba9bde1f"
+            ]
+        ]
+    },
+    {
+        "id": "e463f64f6240a2fc",
+        "type": "mqtt out",
+        "z": "dba317d8a3fb3010",
+        "name": "",
+        "topic": "/SmartLock/Control/DoorControl",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5e5231a0d25397df",
+        "x": 650,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "49342e825ec857a1",
+        "type": "debug",
+        "z": "dba317d8a3fb3010",
+        "name": "debug 37",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "5eb3cc027e3a4532",
+        "type": "ui_text",
+        "z": "dba317d8a3fb3010",
+        "group": "5ce9ee3403a8972c",
         "order": 2,
-        "disabled": false,
-        "hidden": false
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Trạng thái cửa",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "e1bbf721ba9bde1f",
+        "type": "http request",
+        "z": "dba317d8a3fb3010",
+        "name": "Write data to DB",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/update?api_key=7PM0WMVTN41DD5KP&field3={{payload}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 600,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7bf56a76ff10040",
+        "type": "ui_switch",
+        "z": "dba317d8a3fb3010",
+        "name": "",
+        "label": "Hệ thống chính",
+        "tooltip": "",
+        "group": "ca4de4f1fbb01085",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "f573df1a4065e6b4"
+            ]
+        ]
+    },
+    {
+        "id": "f573df1a4065e6b4",
+        "type": "function",
+        "z": "dba317d8a3fb3010",
+        "name": "function 12",
+        "func": "var msg1 = {};\nvar msg2 = {};\n\n// Check if the switch button sends true or false\nif (msg.payload === true) {\n    // If true, prepare a success notification\n    msg1.payload = \"Hệ thống chính is ON.\";\n    return [msg1, null]; // Send msg1 to output 1\n} else if (msg.payload === false) {\n    // If false, prepare a failure notification\n    msg2.payload = \"Hệ thống chính is OFF.\";\n    return [null, msg2]; // Send msg2 to output 2\n} else {\n    // If the payload is neither true nor false (unexpected case)\n    return null; // Do nothing\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "9ccd3f9807350420"
+            ]
+        ]
+    },
+    {
+        "id": "3dc3dce20cd7717e",
+        "type": "ui_switch",
+        "z": "dba317d8a3fb3010",
+        "name": "",
+        "label": "Tự động tưới cây",
+        "tooltip": "",
+        "group": "ca4de4f1fbb01085",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "dd3a635ced4d3f3d"
+            ]
+        ]
+    },
+    {
+        "id": "8870129e443386c8",
+        "type": "ui_switch",
+        "z": "dba317d8a3fb3010",
+        "name": "",
+        "label": "Thông báo người dùng",
+        "tooltip": "",
+        "group": "ca4de4f1fbb01085",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "7181ddcf2658cf38"
+            ]
+        ]
+    },
+    {
+        "id": "0fd455d673ace824",
+        "type": "ui_switch",
+        "z": "dba317d8a3fb3010",
+        "name": "",
+        "label": "Tự động điều chỉnh môi trường",
+        "tooltip": "",
+        "group": "ca4de4f1fbb01085",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 260,
+        "wires": [
+            [
+                "85abf0967404e443"
+            ]
+        ]
+    },
+    {
+        "id": "dd3a635ced4d3f3d",
+        "type": "function",
+        "z": "dba317d8a3fb3010",
+        "name": "function 13",
+        "func": "var msg1 = {};\nvar msg2 = {};\n\n// Check if the switch button sends true or false\nif (msg.payload === true) {\n    // If true, prepare a success notification\n    msg1.payload = \"Tự động tưới cây is ON.\";\n    return [msg1, null]; // Send msg1 to output 1\n} else if (msg.payload === false) {\n    // If false, prepare a failure notification\n    msg2.payload = \"Tự động tưới cây is OFF.\";\n    return [null, msg2]; // Send msg2 to output 2\n} else {\n    // If the payload is neither true nor false (unexpected case)\n    return null; // Do nothing\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "036c8b6dd1df6cee"
+            ]
+        ]
+    },
+    {
+        "id": "7181ddcf2658cf38",
+        "type": "function",
+        "z": "dba317d8a3fb3010",
+        "name": "function 14",
+        "func": "var msg1 = {};\nvar msg2 = {};\n\n// Check if the switch button sends true or false\nif (msg.payload === true) {\n    // If true, prepare a success notification\n    msg1.payload = \"Thông báo người dùng is ON.\";\n    return [msg1, null]; // Send msg1 to output 1\n} else if (msg.payload === false) {\n    // If false, prepare a failure notification\n    msg2.payload = \"Thông báo người dùng is OFF.\";\n    return [null, msg2]; // Send msg2 to output 2\n} else {\n    // If the payload is neither true nor false (unexpected case)\n    return null; // Do nothing\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 220,
+        "wires": [
+            [
+                "d67851692499d38a"
+            ]
+        ]
+    },
+    {
+        "id": "85abf0967404e443",
+        "type": "function",
+        "z": "dba317d8a3fb3010",
+        "name": "function 15",
+        "func": "var msg1 = {};\nvar msg2 = {};\n\n// Check if the switch button sends true or false\nif (msg.payload === true) {\n    // If true, prepare a success notification\n    msg1.payload = \"Tự động điều chỉnh môi trường is ON.\";\n    return [msg1, null]; // Send msg1 to output 1\n} else if (msg.payload === false) {\n    // If false, prepare a failure notification\n    msg2.payload = \"Tự động điều chỉnh môi trường is OFF.\";\n    return [null, msg2]; // Send msg2 to output 2\n} else {\n    // If the payload is neither true nor false (unexpected case)\n    return null; // Do nothing\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "414547b6ed34ae38"
+            ]
+        ]
+    },
+    {
+        "id": "beac9bd2ea8f2586",
+        "type": "http request",
+        "z": "dba317d8a3fb3010",
+        "name": "Write data to DB",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/update?api_key=7PM0WMVTN41DD5KP&field3={{payload}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 740,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3cb36ee3e0858bd0",
+        "type": "mqtt out",
+        "z": "dba317d8a3fb3010",
+        "name": "",
+        "topic": "/SmartLock/Control/DoorControl",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5e5231a0d25397df",
+        "x": 670,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "0e2a6fdd53bcb796",
+        "type": "ui_text",
+        "z": "dba317d8a3fb3010",
+        "group": "5ce9ee3403a8972c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Trạng thái cửa",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 920,
+        "y": 440,
+        "wires": []
     }
 ]
