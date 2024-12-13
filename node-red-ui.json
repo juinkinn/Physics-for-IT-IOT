@@ -1,1 +1,3075 @@
-[{"id":"c417f3b57bbe6c9f","type":"tab","label":"Sign Up ","disabled":false,"info":"","env":[]},{"id":"fc5dfa2402324f56","type":"tab","label":"Login","disabled":true,"info":"","env":[]},{"id":"c345c2881b47b474","type":"tab","label":"Temperature and Humidity","disabled":false,"info":"","env":[]},{"id":"cd9a69d32342d4a2","type":"tab","label":"Status","disabled":false,"info":"","env":[]},{"id":"2551a8a3e7230303","type":"ui_base","theme":{"name":"theme-light","lightTheme":{"default":"#0094CE","baseColor":"#26a51d","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":true,"reset":false},"darkTheme":{"default":"#097479","baseColor":"#097479","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":false},"customTheme":{"name":"Untitled Theme 1","default":"#4B7930","baseColor":"#4B7930","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"},"themeState":{"base-color":{"default":"#0094CE","value":"#26a51d","edited":true},"page-titlebar-backgroundColor":{"value":"#26a51d","edited":false},"page-backgroundColor":{"value":"#fafafa","edited":false},"page-sidebar-backgroundColor":{"value":"#ffffff","edited":false},"group-textColor":{"value":"#3edb33","edited":false},"group-borderColor":{"value":"#ffffff","edited":false},"group-backgroundColor":{"value":"#ffffff","edited":false},"widget-textColor":{"value":"#111111","edited":false},"widget-backgroundColor":{"value":"#26a51d","edited":false},"widget-borderColor":{"value":"#ffffff","edited":false},"base-font":{"value":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"}},"angularTheme":{"primary":"indigo","accents":"blue","warn":"red","background":"grey","palette":"light"}},"site":{"name":"Node-RED Dashboard","hideToolbar":"false","allowSwipe":"false","lockMenu":"false","allowTempTheme":"true","dateFormat":"DD/MM/YYYY","sizes":{"sx":48,"sy":48,"gx":6,"gy":6,"cx":6,"cy":6,"px":0,"py":0}}},{"id":"5d4133c9155fdfa4","type":"mqtt-broker","name":"","broker":"broker.hivemq.com","port":"1883","clientid":"","autoConnect":true,"usetls":false,"protocolVersion":"4","keepalive":"60","cleansession":true,"autoUnsubscribe":true,"birthTopic":"","birthQos":"0","birthRetain":"false","birthPayload":"","birthMsg":{},"closeTopic":"","closeQos":"0","closeRetain":"false","closePayload":"","closeMsg":{},"willTopic":"","willQos":"0","willRetain":"false","willPayload":"","willMsg":{},"userProps":"","sessionExpiry":""},{"id":"5e5231a0d25397df","type":"mqtt-broker","name":"","broker":"broker.mqtt-dashboard.com","port":"1883","clientid":"","autoConnect":true,"usetls":false,"protocolVersion":"4","keepalive":"60","cleansession":true,"autoUnsubscribe":true,"birthTopic":"","birthQos":"0","birthRetain":"false","birthPayload":"","birthMsg":{},"closeTopic":"","closeQos":"0","closeRetain":"false","closePayload":"","closeMsg":{},"willTopic":"","willQos":"0","willRetain":"false","willPayload":"","willMsg":{},"userProps":"","sessionExpiry":""},{"id":"4bd628c619506e78","type":"mongodb3","uri":"mongodb+srv://juinkinn:22127478@iot.8xeuq.mongodb.net/?retryWrites=true&w=majority&appName=iot","name":"IOT","options":"","parallelism":"-1"},{"id":"d502d27466fdea61","type":"mongodb3","uri":"mongodb+srv://juinkinn:22127478@iot.8xeuq.mongodb.net/?retryWrites=true&w=majority&appName=iot","name":"IOT","options":"","parallelism":"-1"},{"id":"6ee65539a4a175c9","type":"ui_group","name":"Wokwi","tab":"19288c10028a87da","order":1,"disp":true,"width":"6","collapse":false,"className":""},{"id":"19288c10028a87da","type":"ui_tab","name":"Home","icon":"dashboard","disabled":false,"hidden":false},{"id":"cb602cb639189da6","type":"ui_tab","name":"SignUpTab","icon":"dashboard","order":3,"disabled":false,"hidden":false},{"id":"92c8ffd21bd1d8dc","type":"ui_group","name":"Trang Đăng Ký","tab":"cb602cb639189da6","order":1,"disp":true,"width":"6","collapse":false,"className":""},{"id":"a91ad6bdde3226a9","type":"ui_tab","name":"LogInTab","icon":"dashboard","order":2,"disabled":false,"hidden":false},{"id":"a53a829c94639ee3","type":"ui_tab","name":"StatusTab","icon":"dashboard","order":4,"disabled":false,"hidden":false},{"id":"013f802d82ed5fc6","type":"ui_group","name":"Trang Quản Lý","tab":"a53a829c94639ee3","order":1,"disp":true,"width":"6","collapse":false,"className":""},{"id":"ece0c58ed53376a1","type":"ui_group","name":"ReadFromThingSpeak","tab":"19288c10028a87da","order":3,"disp":true,"width":"6","collapse":false,"className":""},{"id":"52b92d11329a01c8","type":"ui_group","name":"Chart","tab":"19288c10028a87da","order":2,"disp":true,"width":"6","collapse":false,"className":""},{"id":"90954682dad95d90","type":"pushsafer-notification-template","name":"Thông báo","title":"","icon":"","iconcolor":"#ff000d","sound":"5","vibration":"2","priority":"2","devices":"","timetolive":"0","retry":"60","expire":"","answer":"0","url":"","urltitle":"","image":"","image2":"","image3":""},{"id":"1ce47892b983c27e","type":"pushsafer-api-key","name":""},{"id":"832deafdf059bc4a","type":"ui_group","name":"Trang Đăng Nhập","tab":"a91ad6bdde3226a9","order":1,"disp":true,"width":"6","collapse":false,"className":""},{"id":"aaeed9dd543ea5e2","type":"ui_form","z":"c417f3b57bbe6c9f","name":"","label":"Sign Up","group":"92c8ffd21bd1d8dc","order":0,"width":0,"height":0,"options":[{"label":"Name","value":"Name","type":"text","required":true,"rows":null},{"label":"Email","value":"Email","type":"email","required":true,"rows":null},{"label":"Username","value":"Username","type":"text","required":true,"rows":null},{"label":"Password","value":"Password","type":"password","required":true,"rows":null},{"label":"Confirm Password","value":"ConfirmPassword","type":"password","required":true,"rows":null}],"formValue":{"Name":"","Email":"","Username":"","Password":"","ConfirmPassword":""},"payload":"","submit":"submit","cancel":"","topic":"topic","topicType":"msg","splitLayout":"","className":"","x":60,"y":100,"wires":[["6fbdfa4b3247576e"]]},{"id":"9b5d25d84b0542db","type":"ui_ui_control","z":"c417f3b57bbe6c9f","name":"","events":"all","x":1120,"y":440,"wires":[[]]},{"id":"297d816e172e3f53","type":"change","z":"c417f3b57bbe6c9f","name":"","rules":[{"t":"set","p":"payload","pt":"msg","to":"{\t    \"tab\":\t    \"LogInTab\"\t}","tot":"jsonata"}],"action":"","property":"","from":"","to":"","reg":false,"x":800,"y":300,"wires":[["9b5d25d84b0542db","25ac142f49aa6c47"]]},{"id":"6fbdfa4b3247576e","type":"function","z":"c417f3b57bbe6c9f","name":"Check password and already exsist account","func":"if (msg.payload.Password === msg.payload.ConfirmPassword) {\n    msg.payload = {\n        Password: msg.payload.Password,\n        Name: msg.payload.Name,\n        Username: msg.payload.Username,\n        Email: msg.payload.Email\n    };\n    return msg;\n} else {\n    msg.payload = 'Incorrect password confirmation'\n    return msg; // Stops the flow if passwords do not match\n}\n","outputs":2,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":330,"y":180,"wires":[["b4863a916698576f"],["fdede7610fab43f3"]]},{"id":"a3aff2926ee8d983","type":"ui_toast","z":"c417f3b57bbe6c9f","position":"top right","displayTime":"3","highlight":"","sendall":true,"outputs":0,"ok":"OK","cancel":"","raw":false,"className":"","topic":"","name":"","x":1070,"y":180,"wires":[]},{"id":"b4863a916698576f","type":"mongodb3 in","z":"c417f3b57bbe6c9f","service":"_ext_","configNode":"d502d27466fdea61","name":"db","collection":"juinkinn","operation":"insertOne","x":590,"y":180,"wires":[["297d816e172e3f53"]]},{"id":"25ac142f49aa6c47","type":"function","z":"c417f3b57bbe6c9f","name":"Signup Success","func":"msg.payload = 'Signup successfully'\nreturn msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":860,"y":180,"wires":[["a3aff2926ee8d983"]]},{"id":"04f06ed0df113be9","type":"ui_button","z":"c417f3b57bbe6c9f","name":"","group":"92c8ffd21bd1d8dc","order":1,"width":0,"height":0,"passthru":false,"label":"button switch to login","tooltip":"","color":"","bgcolor":"","className":"","icon":"","payload":"","payloadType":"str","topic":"topic","topicType":"msg","x":140,"y":580,"wires":[["4193573e8bbc500e"]]},{"id":"4193573e8bbc500e","type":"function","z":"c417f3b57bbe6c9f","name":"sign in","func":"msg.payload = {\n    \"tab\": \"LogInTab\"\n}\nreturn msg","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":350,"y":580,"wires":[["28c4e360836d03bc"]]},{"id":"28c4e360836d03bc","type":"ui_ui_control","z":"c417f3b57bbe6c9f","name":"To login","events":"all","x":500,"y":580,"wires":[[]]},{"id":"fdede7610fab43f3","type":"ui_toast","z":"c417f3b57bbe6c9f","position":"top right","displayTime":"3","highlight":"","sendall":true,"outputs":0,"ok":"OK","cancel":"","raw":false,"className":"","topic":"","name":"","x":610,"y":80,"wires":[]},{"id":"7be337e8649d8159","type":"ui_form","z":"fc5dfa2402324f56","name":"","label":"Log In","group":"","order":0,"width":0,"height":0,"options":[{"label":"Username","value":"Username","type":"text","required":true,"rows":null},{"label":"Password","value":"Password","type":"password","required":true,"rows":null},{"label":"Email","value":"Email","type":"email","required":true,"rows":null}],"formValue":{"Username":"","Password":"","Email":""},"payload":"","submit":"submit","cancel":"","topic":"topic","topicType":"msg","splitLayout":"","className":"","x":50,"y":120,"wires":[["656e3b75f366420e"]]},{"id":"d4053ed833fa10b1","type":"ui_ui_control","z":"fc5dfa2402324f56","name":"","events":"all","x":860,"y":60,"wires":[[]]},{"id":"00e6c1cac37bb015","type":"ui_toast","z":"fc5dfa2402324f56","position":"top right","displayTime":"5","highlight":"","sendall":true,"outputs":0,"ok":"OK","cancel":"","raw":false,"className":"","topic":"","name":"","x":870,"y":240,"wires":[]},{"id":"0389cb3287d86b21","type":"function","z":"fc5dfa2402324f56","name":"Check login","func":"var dbuser = msg.payload.dbUser;\nvar dbpass = msg.payload.dbPass;\nvar dbemail = msg.payload.dbEmail;\n\n// Extract input password\nvar inputPassword = msg.payload.Password;\nvar inputUser = msg.payload.Username;\nmsg.payload = 0; // Initialize to 0 before checking\n\n// Check if user exists and validate credentials\nif (dbuser !== undefined && dbpass !== undefined) {\n    if (inputPassword === dbpass && inputUser === dbuser) {\n        msg.payload = 1; // Set to 1 for success\n    }\n} else { // User not found\n    msg.payload = 0; // Set to 0 if no user found or invalid credentials\n}\n\nreturn msg;\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":470,"y":300,"wires":[["38801440e030467f"]]},{"id":"d75553db4cb95105","type":"ui_button","z":"fc5dfa2402324f56","name":"","group":"","order":1,"width":0,"height":0,"passthru":false,"label":"button switch to sign up","tooltip":"","color":"","bgcolor":"","className":"","icon":"","payload":"","payloadType":"str","topic":"topic","topicType":"msg","x":130,"y":440,"wires":[["604acf6c9c6920da"]]},{"id":"604acf6c9c6920da","type":"function","z":"fc5dfa2402324f56","name":"sign in","func":"msg.payload = {\n    \"tab\": \"SignUpTab\"\n}\nreturn msg","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":330,"y":440,"wires":[["10af102ed95109f4"]]},{"id":"10af102ed95109f4","type":"ui_ui_control","z":"fc5dfa2402324f56","name":"To signup","events":"all","x":480,"y":440,"wires":[[]]},{"id":"656e3b75f366420e","type":"mongodb3 in","z":"fc5dfa2402324f56","service":"_ext_","configNode":"d502d27466fdea61","name":"db","collection":"juinkinn","operation":"findOne","x":130,"y":220,"wires":[["2ae7958b8a199468"]]},{"id":"38801440e030467f","type":"switch","z":"fc5dfa2402324f56","name":"","property":"payload","propertyType":"msg","rules":[{"t":"eq","v":"1","vt":"num"},{"t":"eq","v":"0","vt":"num"}],"checkall":"false","repair":false,"outputs":2,"x":470,"y":160,"wires":[["f5278c0e187fff53","6ae0fef57dbe352c","5d39f3424106e723"],["faa45a59acbe8cc9"]]},{"id":"2ae7958b8a199468","type":"function","z":"fc5dfa2402324f56","name":"store query results","func":"msg.payload.dbPass = msg.payload.Password;\nmsg.payload.dbName = msg.payload.Name;\nmsg.payload.dbUser = msg.payload.Username;\nmsg.payload.dbEmail = msg.payload.Email;\nreturn msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":230,"y":300,"wires":[["0389cb3287d86b21","529a21640ce4555a"]]},{"id":"f5278c0e187fff53","type":"change","z":"fc5dfa2402324f56","name":"","rules":[{"t":"set","p":"payload","pt":"msg","to":"{\t    \"tabs\":{\t        \"hide\":[\t            \"SignUpTab\",\t            \"LogInTab\"\t        ]\t    }\t}","tot":"jsonata"}],"action":"","property":"","from":"","to":"","reg":false,"x":600,"y":40,"wires":[["d4053ed833fa10b1"]]},{"id":"6ae0fef57dbe352c","type":"change","z":"fc5dfa2402324f56","name":"","rules":[{"t":"set","p":"payload","pt":"msg","to":"{\t    \"tab\":\t    \"Home\"\t}","tot":"jsonata"}],"action":"","property":"","from":"","to":"","reg":false,"x":640,"y":80,"wires":[["d4053ed833fa10b1"]]},{"id":"faa45a59acbe8cc9","type":"function","z":"fc5dfa2402324f56","name":"Fail msg","func":"msg.payload = 'Login failed'\nreturn msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":760,"y":180,"wires":[["00e6c1cac37bb015"]]},{"id":"5d39f3424106e723","type":"function","z":"fc5dfa2402324f56","name":"Success msg","func":"msg.payload = 'Login successfully'\nreturn msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":660,"y":140,"wires":[["88a9d75d6ad09369"]]},{"id":"88a9d75d6ad09369","type":"ui_toast","z":"fc5dfa2402324f56","position":"top right","displayTime":"5","highlight":"","sendall":true,"outputs":0,"ok":"OK","cancel":"","raw":false,"className":"","topic":"","name":"","x":890,"y":120,"wires":[]},{"id":"529a21640ce4555a","type":"debug","z":"fc5dfa2402324f56","name":"check login results","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","targetType":"msg","statusVal":"","statusType":"auto","x":390,"y":380,"wires":[]},{"id":"65f25b26784ea065","type":"mqtt in","z":"c345c2881b47b474","name":"","topic":"/wateringTKMQ/temp","qos":"0","datatype":"auto-detect","broker":"5d4133c9155fdfa4","nl":false,"rap":true,"rh":0,"inputs":0,"x":140,"y":1160,"wires":[["60cd72d7d2d6fe66","023ef6501b9eba25"]]},{"id":"60cd72d7d2d6fe66","type":"ui_gauge","z":"c345c2881b47b474","name":"","group":"6ee65539a4a175c9","order":1,"width":0,"height":0,"gtype":"gage","title":"Temperature","label":"units","format":"{{value}}","min":"-10","max":"100","colors":["#00b500","#e6e600","#ca3838"],"seg1":"30","seg2":"50","diff":false,"className":"","x":410,"y":1220,"wires":[]},{"id":"d4329d7f0421bc99","type":"mqtt in","z":"c345c2881b47b474","name":"","topic":"/wateringTKMQ/humid","qos":"0","datatype":"auto-detect","broker":"5d4133c9155fdfa4","nl":false,"rap":true,"rh":0,"inputs":0,"x":140,"y":1300,"wires":[["6c5cac593de66188","03b767d8a9bcae3e"]]},{"id":"6c5cac593de66188","type":"ui_gauge","z":"c345c2881b47b474","name":"","group":"6ee65539a4a175c9","order":1,"width":0,"height":0,"gtype":"gage","title":"Humidity","label":"units","format":"{{value}}","min":0,"max":"100","colors":["#00b500","#e6e600","#ca3838"],"seg1":"50","seg2":"70","diff":false,"className":"","x":400,"y":1360,"wires":[]},{"id":"56d2c7b54c073296","type":"ui_button","z":"c345c2881b47b474","name":"Logout","group":"6ee65539a4a175c9","order":0,"width":0,"height":0,"passthru":false,"label":"Logout","tooltip":"","color":"","bgcolor":"","className":"","icon":"","payload":"","payloadType":"str","topic":"topic","topicType":"msg","x":130,"y":2180,"wires":[["35b67432214f2d2e"]]},{"id":"35b67432214f2d2e","type":"function","z":"c345c2881b47b474","name":"Logout","func":"msg.payload = {\n    \"tab\": \"LogInTab\"\n}\nreturn msg","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":290,"y":2180,"wires":[["4e174baf0cc9e214"]]},{"id":"4e174baf0cc9e214","type":"ui_ui_control","z":"c345c2881b47b474","name":"Logout","events":"all","x":490,"y":2180,"wires":[[]]},{"id":"22ef84ad1f7df9c3","type":"thingspeak42","z":"c345c2881b47b474","name":"","delay":"15","topic1":"Temperature","topic2":"Humidity","topic3":"","topic4":"","topic5":"","topic6":"","topic7":"","topic8":"","endpoint":"https://thingspeak.mathworks.com/","x":630,"y":1240,"wires":[]},{"id":"023ef6501b9eba25","type":"change","z":"c345c2881b47b474","name":"","rules":[{"t":"set","p":"topic","pt":"msg","to":"Temperature","tot":"str"}],"action":"","property":"","from":"","to":"","reg":false,"x":410,"y":1160,"wires":[["22ef84ad1f7df9c3"]]},{"id":"03b767d8a9bcae3e","type":"change","z":"c345c2881b47b474","name":"","rules":[{"t":"set","p":"topic","pt":"msg","to":"Humidity","tot":"str"}],"action":"","property":"","from":"","to":"","reg":false,"x":390,"y":1300,"wires":[["22ef84ad1f7df9c3"]]},{"id":"63e9047d2f73c739","type":"comment","z":"c345c2881b47b474","name":"đọc từ thingspeak để làm average humid and temp","info":"","x":230,"y":1960,"wires":[]},{"id":"9a9f4b621899e512","type":"http request","z":"c345c2881b47b474","name":"","method":"GET","ret":"txt","paytoqs":"ignore","url":"https://api.thingspeak.com/channels/2779429/fields/1.json?api_key=VDIUIVFT61I4DQ0I","tls":"","persist":false,"proxy":"","insecureHTTPParser":false,"authType":"","senderr":false,"headers":[],"x":290,"y":2020,"wires":[["d37e46b37c687713"]]},{"id":"286d15e69eb8d343","type":"inject","z":"c345c2881b47b474","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"10","crontab":"","once":true,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":90,"y":2020,"wires":[["9a9f4b621899e512"]]},{"id":"e88964c0b7624601","type":"function","z":"c345c2881b47b474","name":" average temperature","func":"let feeds = msg.payload.feeds; // Array of data\nlet totalTemp = 0;\nlet count = 0;\n\n// Lấy ngày hiện tại\nlet currentDate = new Date();\nlet startOfDay = new Date(currentDate.setHours(0, 0, 0, 0)); // 00:00 hôm nay\nlet endOfDay = new Date(currentDate.setHours(23, 59, 59, 999)); // 23:59 hôm nay\n\n// Lọc các bản ghi thuộc ngày hôm nay\nfeeds.forEach(feed => {\n    let timestamp = new Date(feed.created_at); // Lấy timestamp của bản ghi\n    if (timestamp >= startOfDay && timestamp <= endOfDay) {\n        // Nếu bản ghi thuộc ngày hôm nay, cộng dồn giá trị nhiệt độ\n        if (feed.field1) {\n            totalTemp += parseFloat(feed.field1);\n            count++;\n        }\n    }\n});\n\n// Tính giá trị trung bình (average)\nlet avgTemp = count > 0 ? totalTemp / count : 0;\n\n// Làm tròn kết quả\navgTemp = Math.round(avgTemp * 10) / 10;\n\n// Trả về kết quả\nmsg.payload = avgTemp;\nreturn msg;\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":640,"y":2020,"wires":[["6ffd39a0858283c9"]]},{"id":"203935118c508457","type":"http request","z":"c345c2881b47b474","name":"","method":"GET","ret":"txt","paytoqs":"ignore","url":"https://api.thingspeak.com/channels/2779429/fields/2.json?api_key=VDIUIVFT61I4DQ0I","tls":"","persist":false,"proxy":"","insecureHTTPParser":false,"authType":"","senderr":false,"headers":[],"x":290,"y":2100,"wires":[["aeace762847891fe"]]},{"id":"a173facfa56ec537","type":"function","z":"c345c2881b47b474","name":"average humidity","func":"let feeds = msg.payload.feeds; // Array of data\nlet totalHumidity = 0;\nlet count = 0;\n\n// Lấy ngày hiện tại\nlet currentDate = new Date();\nlet startOfDay = new Date(currentDate.setHours(0, 0, 0, 0)); // 00:00 hôm nay\nlet endOfDay = new Date(currentDate.setHours(23, 59, 59, 999)); // 23:59 hôm nay\n\n// Lọc các bản ghi thuộc ngày hôm nay\nfeeds.forEach(feed => {\n    let timestamp = new Date(feed.created_at); // Lấy timestamp của bản ghi\n    if (timestamp >= startOfDay && timestamp <= endOfDay) {\n        // Nếu bản ghi thuộc ngày hôm nay, cộng dồn giá trị độ ẩm\n        if (feed.field2) {\n            totalHumidity += parseFloat(feed.field2); // Parse field2 values\n            count++;\n        }\n    }\n});\n\n// Tính giá trị trung bình (average) của độ ẩm\nlet avgHumidity = count > 0 ? totalHumidity / count : 0;\n\n// Làm tròn kết quả\navgHumidity = Math.round(avgHumidity * 10) / 10;\n\n// Trả về kết quả\nmsg.payload = avgHumidity;\nreturn msg;\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":630,"y":2100,"wires":[["0de0598f206e7994"]]},{"id":"6ffd39a0858283c9","type":"ui_gauge","z":"c345c2881b47b474","name":"","group":"ece0c58ed53376a1","order":2,"width":0,"height":0,"gtype":"gage","title":"Average Temperature ","label":"units","format":"{{value}}","min":0,"max":"50","colors":["#00b500","#e6e600","#ca3838"],"seg1":"20","seg2":"40","diff":false,"className":"","x":900,"y":2020,"wires":[]},{"id":"0de0598f206e7994","type":"ui_gauge","z":"c345c2881b47b474","name":"","group":"ece0c58ed53376a1","order":2,"width":0,"height":0,"gtype":"gage","title":"Average Humidity","label":"units","format":"{{value}}","min":0,"max":"100","colors":["#00b500","#e6e600","#ca3838"],"seg1":"50","seg2":"70","diff":false,"className":"","x":890,"y":2100,"wires":[]},{"id":"2002f6c1104f2061","type":"inject","z":"c345c2881b47b474","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"10","crontab":"","once":true,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":90,"y":2100,"wires":[["203935118c508457"]]},{"id":"d37e46b37c687713","type":"json","z":"c345c2881b47b474","name":"","property":"payload","action":"","pretty":false,"x":450,"y":2020,"wires":[["e88964c0b7624601"]]},{"id":"aeace762847891fe","type":"json","z":"c345c2881b47b474","name":"","property":"payload","action":"","pretty":false,"x":450,"y":2100,"wires":[["a173facfa56ec537"]]},{"id":"497c34bae3fefb27","type":"ui_chart","z":"c345c2881b47b474","name":"","group":"52b92d11329a01c8","order":0,"width":0,"height":0,"label":"Temperature Chart","chartType":"line","legend":"false","xformat":"HH:mm:ss","interpolate":"linear","nodata":"","dot":false,"ymin":"","ymax":"","removeOlder":1,"removeOlderPoints":"","removeOlderUnit":"3600","cutout":0,"useOneColor":false,"useUTC":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"outputs":1,"useDifferentColor":false,"className":"","x":850,"y":1840,"wires":[[]]},{"id":"b2bf280a4b7b926a","type":"ui_chart","z":"c345c2881b47b474","name":"","group":"52b92d11329a01c8","order":0,"width":0,"height":0,"label":"Humidity Chart","chartType":"line","legend":"false","xformat":"HH:mm:ss","interpolate":"linear","nodata":"","dot":false,"ymin":"","ymax":"","removeOlder":1,"removeOlderPoints":"","removeOlderUnit":"3600","cutout":0,"useOneColor":false,"useUTC":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"outputs":1,"useDifferentColor":false,"className":"","x":840,"y":1900,"wires":[[]]},{"id":"d7cd46f4432f9a71","type":"inject","z":"c345c2881b47b474","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"10","crontab":"","once":true,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":110,"y":1840,"wires":[["6c0fc84494ec4047"]]},{"id":"235292ee603c216c","type":"inject","z":"c345c2881b47b474","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"10","crontab":"","once":true,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":110,"y":1900,"wires":[["4148f5ac2858b1f2"]]},{"id":"6c0fc84494ec4047","type":"http request","z":"c345c2881b47b474","name":"","method":"GET","ret":"txt","paytoqs":"ignore","url":"https://api.thingspeak.com/channels/2779429/fields/1.json?api_key=VDIUIVFT61I4DQ0I","tls":"","persist":false,"proxy":"","insecureHTTPParser":false,"authType":"","senderr":false,"headers":[],"x":310,"y":1840,"wires":[["08dc65345065592a"]]},{"id":"4148f5ac2858b1f2","type":"http request","z":"c345c2881b47b474","name":"","method":"GET","ret":"txt","paytoqs":"ignore","url":"https://api.thingspeak.com/channels/2779429/fields/2.json?api_key=VDIUIVFT61I4DQ0I","tls":"","persist":false,"proxy":"","insecureHTTPParser":false,"authType":"","senderr":false,"headers":[],"x":310,"y":1900,"wires":[["cedc3d067c489198"]]},{"id":"08dc65345065592a","type":"json","z":"c345c2881b47b474","name":"","property":"payload","action":"","pretty":false,"x":470,"y":1840,"wires":[["a91b4bb61d04b298"]]},{"id":"cedc3d067c489198","type":"json","z":"c345c2881b47b474","name":"","property":"payload","action":"","pretty":false,"x":470,"y":1900,"wires":[["3e9bf465e918f445"]]},{"id":"a91b4bb61d04b298","type":"function","z":"c345c2881b47b474","name":"read temperature","func":"let feeds = msg.payload.feeds; // Array of data\n\nif (feeds.length > 0) {\n    // Lấy giá trị field1 (nhiệt độ) từ bản ghi gần nhất\n    let latestTemp = parseFloat(feeds[feeds.length - 1].field1);\n\n    // Return giá trị gần nhất\n    msg.payload = latestTemp;\n} else {\n    msg.payload = \"No data latestTemp available\"; // Trường hợp không có dữ liệu\n}\n\nreturn msg;\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":650,"y":1840,"wires":[["497c34bae3fefb27"]]},{"id":"3e9bf465e918f445","type":"function","z":"c345c2881b47b474","name":"read humidity","func":"let feeds = msg.payload.feeds; // Array of data\n\nif (feeds.length > 0) {\n    // Lấy giá trị field1 (nhiệt độ) từ bản ghi gần nhất\n    let latestHumidity = parseFloat(feeds[feeds.length - 1].field2);\n\n    // Return giá trị gần nhất\n    msg.payload = latestHumidity;\n} else {\n    msg.payload = \"No data latestHumidity available\"; // Trường hợp không có dữ liệu\n}\n\nreturn msg;\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":640,"y":1900,"wires":[["b2bf280a4b7b926a"]]},{"id":"f3d2a9cade015ee1","type":"e-mail","z":"c345c2881b47b474","server":"smtp.gmail.com","port":"465","authtype":"BASIC","saslformat":true,"token":"oauth2Response.access_token","secure":true,"tls":true,"name":"","dname":"","x":1090,"y":840,"wires":[]},{"id":"7cd6284e1d2d48c2","type":"comment","z":"c345c2881b47b474","name":"Gửi mail thông báo nhiệt độ, độ ẩm || Test nhớ nối inject vào","info":"","x":280,"y":860,"wires":[]},{"id":"b2d408084e0132ae","type":"function","z":"c345c2881b47b474","name":"gửi mail cảnh báo nhiệt độ","func":"// Initialize the notification state for high and low temperature\nlet notifiedHigh = context.get('notifiedHigh') || false;\nlet notifiedLow = context.get('notifiedLow') || false;\n\n// Get the stored email address from login results\nlet dbEmail = msg.payload.Email; // Email to send the notification\nmsg.payload.dbEmail = msg.payload.Email;\n// Get the feeds data from the HTTP request\nlet feeds = msg.payload.feeds; // Array of data\n\nif (feeds.length > 0) {\n    // Extract the latest temperature\n    let latestTemp = parseFloat(feeds[feeds.length - 1].field1);\n\n    // Check for high temperature alert\n    if (latestTemp > 30) {\n        if (!notifiedHigh) {\n            // Send high temperature notification\n            context.set('notifiedHigh', true); // Mark as notified\n            context.set('notifiedLow', false); // Reset low temp notification state\n            msg.topic = \"Cảnh báo nhiệt độ cao\";\n            msg.payload = `Cảnh báo! Nhiệt độ cao: ${latestTemp}°C.`;\n  //          msg.to = dbEmail; // Set recipient email\n            return msg; // Send the email\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Check for low temperature alert\n    if (latestTemp < 18) {\n        if (!notifiedLow) {\n            // Send low temperature notification\n            context.set('notifiedLow', true); // Mark as notified\n            context.set('notifiedHigh', false); // Reset high temp notification state\n            msg.topic = \"Cảnh báo nhiệt độ thấp\";\n            msg.payload = `Cảnh báo! Nhiệt độ thấp: ${latestTemp}°C.`;\n       //     msg.to = dbEmail; // Set recipient email\n            return msg; // Send the email\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Reset notification states when temperature is normal\n    if (latestTemp >= 18 && latestTemp <= 30) {\n        context.set('notifiedHigh', false);\n        context.set('notifiedLow', false);\n        msg.payload = latestTemp; // Pass the temperature for display in the gauge\n        return msg; // Continue to next node, no notification\n    }\n} else {\n    msg.payload = \"No data available\"; // No feeds, handle error\n    return msg; // Send error message\n}\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":800,"y":840,"wires":[["f3d2a9cade015ee1","20aa3b9bf7e5f792"]]},{"id":"429d69f5a607f69e","type":"inject","z":"c345c2881b47b474","name":"inverval 2 phut","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"120","crontab":"","once":true,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":260,"y":220,"wires":[[]]},{"id":"15a4957e6e4043b1","type":"http request","z":"c345c2881b47b474","name":"","method":"GET","ret":"txt","paytoqs":"ignore","url":"https://api.thingspeak.com/channels/2779429/fields/1.json?api_key=VDIUIVFT61I4DQ0I","tls":"","persist":false,"proxy":"","insecureHTTPParser":false,"authType":"","senderr":false,"headers":[],"x":290,"y":920,"wires":[["652fef3e5ea77686"]]},{"id":"652fef3e5ea77686","type":"json","z":"c345c2881b47b474","name":"","property":"payload","action":"","pretty":false,"x":490,"y":920,"wires":[["b2d408084e0132ae"]]},{"id":"0c97e1df15906611","type":"http request","z":"c345c2881b47b474","name":"","method":"GET","ret":"txt","paytoqs":"ignore","url":"https://api.thingspeak.com/channels/2779429/fields/2.json?api_key=VDIUIVFT61I4DQ0I","tls":"","persist":false,"proxy":"","insecureHTTPParser":false,"authType":"","senderr":false,"headers":[],"x":290,"y":1020,"wires":[["98fa0d3866c1cf3a"]]},{"id":"98fa0d3866c1cf3a","type":"json","z":"c345c2881b47b474","name":"","property":"payload","action":"","pretty":false,"x":490,"y":1040,"wires":[["7a62ac47d3654bfe"]]},{"id":"7a62ac47d3654bfe","type":"function","z":"c345c2881b47b474","name":"gửi mail cảnh báo độ ẩm","func":"// Initialize the notification state for high and low humidity\nlet notifiedHigh = context.get('notifiedHigh') || false;\nlet notifiedLow = context.get('notifiedLow') || false;\n\n// Get the stored email address from login results\n//let dbEmail = msg.payload.Email; // Email to send the notification\n\n// Get the feeds data from the HTTP request\nlet feeds = msg.payload.feeds; // Array of data\n\nif (feeds.length > 0) {\n    // Extract the latest humidity\n    let latestHumidity = parseFloat(feeds[feeds.length - 1].field2);\n\n    // Check for high humidity alert\n    if (latestHumidity > 70) {\n        if (!notifiedHigh) {\n            // Send high humidity notification\n            context.set('notifiedHigh', true); // Mark as notified\n            context.set('notifiedLow', false); // Reset low humidity notification state\n            msg.topic = \"Cảnh báo độ ẩm cao\";\n            msg.payload = `Cảnh báo! Độ ẩm cao: ${latestHumidity}%.`;\n  //          msg.to = dbEmail; // Set recipient email\n            return msg; // Send the email\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Check for low humidity alert\n    if (latestHumidity < 40) {\n        if (!notifiedLow) {\n            // Send low humidity notification\n            context.set('notifiedLow', true); // Mark as notified\n            context.set('notifiedHigh', false); // Reset high humidity notification state\n            msg.topic = \"Cảnh báo độ ẩm thấp\";\n            msg.payload = `Cảnh báo! Độ ẩm thấp: ${latestHumidity}%.`;\n    //        msg.to = dbEmail; // Set recipient email\n            return msg; // Send the email\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Reset notification states when humidity is normal\n    if (latestHumidity >= 40 && latestHumidity <= 70) {\n        context.set('notifiedHigh', false);\n        context.set('notifiedLow', false);\n        msg.payload = latestHumidity; // Pass the humidity for display in the gauge\n        return msg; // Continue to next node, no notification\n    }\n} else {\n    msg.payload = \"No data available\"; // No feeds, handle error\n    return msg; // Send error message\n}\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":790,"y":1040,"wires":[["d893e17f0aacffea","f7aee5a1aabf1ffd"]]},{"id":"296abbb103f655ab","type":"comment","z":"c345c2881b47b474","name":"Chỉ lấy giá trị gần nhất","info":"","x":120,"y":1780,"wires":[]},{"id":"613304e4ec5e86ec","type":"comment","z":"c345c2881b47b474","name":"Lấy toàn bộ các giá trị","info":"","x":660,"y":1960,"wires":[]},{"id":"bcd2c38e1aa02df6","type":"debug","z":"c345c2881b47b474","name":"debug 41","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":400,"y":1420,"wires":[]},{"id":"48927b10ed55449d","type":"comment","z":"c345c2881b47b474","name":"pushsafer","info":"","x":80,"y":1460,"wires":[]},{"id":"fe8b7aec7ce76955","type":"pushsafer","z":"c345c2881b47b474","name":"","apikey":"1ce47892b983c27e","notificationtemplate":"90954682dad95d90","x":880,"y":1480,"wires":[[],[]]},{"id":"be8bf6bafac268f8","type":"inject","z":"c345c2881b47b474","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"10","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":110,"y":1600,"wires":[[]]},{"id":"046d3bef5b7fd70e","type":"inject","z":"c345c2881b47b474","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"},{"p":"to","v":"nguyenhoangtrungkien92@gmail.com","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":120,"y":960,"wires":[["15a4957e6e4043b1","0c97e1df15906611"]]},{"id":"696e5a7a4ccf0581","type":"http request","z":"c345c2881b47b474","name":"","method":"GET","ret":"txt","paytoqs":"ignore","url":"https://api.thingspeak.com/channels/2779429/fields/1.json?api_key=VDIUIVFT61I4DQ0I","tls":"","persist":false,"proxy":"","insecureHTTPParser":false,"authType":"","senderr":false,"headers":[],"x":270,"y":1520,"wires":[["2a59b1e791043f87"]]},{"id":"2a59b1e791043f87","type":"json","z":"c345c2881b47b474","name":"","property":"payload","action":"","pretty":false,"x":430,"y":1520,"wires":[["25fa8b7fe962bd4d"]]},{"id":"25fa8b7fe962bd4d","type":"function","z":"c345c2881b47b474","name":"gửi đth cảnh báo nhiệt độ","func":"// Initialize the notification state for high and low temperature\nlet notifiedHigh = context.get('notifiedHigh') || false;\nlet notifiedLow = context.get('notifiedLow') || false;\n\n// Get the feeds data from the HTTP request\nlet feeds = msg.payload.feeds; // Array of data\n\nif (feeds.length > 0) {\n    // Extract the latest temperature\n    let latestTemp = parseFloat(feeds[feeds.length - 1].field1);\n\n    // Check for high temperature alert\n    if (latestTemp > 30) {\n        if (!notifiedHigh) {\n            // Send high temperature notification\n            context.set('notifiedHigh', true); // Mark as notified\n            context.set('notifiedLow', false); // Reset low temp notification state\n            msg.topic = \"Cảnh báo nhiệt độ cao\";\n            msg.payload = `Nhiệt độ cao: ${latestTemp}°C.`;\n            return msg; // Send the message to Pushsafer node\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Check for low temperature alert\n    if (latestTemp < 18) {\n        if (!notifiedLow) {\n            // Send low temperature notification\n            context.set('notifiedLow', true); // Mark as notified\n            context.set('notifiedHigh', false); // Reset high temp notification state\n            msg.topic = \"Cảnh báo nhiệt độ thấp\";\n            msg.payload = `Nhiệt độ thấp: ${latestTemp}°C.`;\n            return msg; // Send the message to Pushsafer node\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Reset notification states when temperature is normal\n    if (latestTemp >= 18 && latestTemp <= 30) {\n        context.set('notifiedHigh', false);\n        context.set('notifiedLow', false);\n        msg.payload = latestTemp; // Pass the temperature for display in the gauge\n        return msg; // Continue to next node, no notification\n    }\n} else {\n    msg.payload = \"No data available\"; // No feeds, handle error\n    return msg; // Send error message\n}\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":630,"y":1520,"wires":[["fe8b7aec7ce76955","bdb7ee6eaab38723"]]},{"id":"bdb7ee6eaab38723","type":"debug","z":"c345c2881b47b474","name":"debug noti cảnh báo nhiệt độ","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","targetType":"msg","statusVal":"","statusType":"auto","x":940,"y":1580,"wires":[]},{"id":"0f7eecef3bb63821","type":"http request","z":"c345c2881b47b474","name":"","method":"GET","ret":"txt","paytoqs":"ignore","url":"https://api.thingspeak.com/channels/2779429/fields/2.json?api_key=VDIUIVFT61I4DQ0I","tls":"","persist":false,"proxy":"","insecureHTTPParser":false,"authType":"","senderr":false,"headers":[],"x":270,"y":1660,"wires":[["05704628d338b253"]]},{"id":"05704628d338b253","type":"json","z":"c345c2881b47b474","name":"","property":"payload","action":"","pretty":false,"x":430,"y":1660,"wires":[["05e13a03043d0c66"]]},{"id":"05e13a03043d0c66","type":"function","z":"c345c2881b47b474","name":"gửi đth cảnh báo độ ẩm","func":"// Initialize the notification state for high and low humidity\nlet notifiedHighHumidity = context.get('notifiedHighHumidity') || false;\nlet notifiedLowHumidity = context.get('notifiedLowHumidity') || false;\n\n// Get the feeds data from the HTTP request\nlet feeds = msg.payload.feeds; // Array of data\n\nif (feeds.length > 0) {\n    // Extract the latest humidity\n    let latestHumidity = parseFloat(feeds[feeds.length - 1].field2);\n\n    // Check for low humidity alert\n    if (latestHumidity < 40) {\n        if (!notifiedLowHumidity) {\n            // Send low humidity notification\n            context.set('notifiedLowHumidity', true); // Mark as notified\n            context.set('notifiedHighHumidity', false); // Reset high humidity notification state\n            msg.topic = \"Cảnh báo độ ẩm thấp\";\n            msg.payload = `Độ ẩm thấp: ${latestHumidity}%.`;\n            return msg; // Send the message to Pushsafer node\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Check for high humidity alert\n    if (latestHumidity > 70) {\n        if (!notifiedHighHumidity) {\n            // Send high humidity notification\n            context.set('notifiedHighHumidity', true); // Mark as notified\n            context.set('notifiedLowHumidity', false); // Reset low humidity notification state\n            msg.topic = \"Cảnh báo độ ẩm cao\";\n            msg.payload = `Độ ẩm cao: ${latestHumidity}%.`;\n            return msg; // Send the message to Pushsafer node\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Reset notification states when humidity is in the normal range\n    if (latestHumidity >= 40 && latestHumidity <= 70) {\n        context.set('notifiedHighHumidity', false);\n        context.set('notifiedLowHumidity', false);\n        msg.payload = latestHumidity; // Pass the humidity for display in the gauge\n        return msg; // Continue to next node, no notification\n    }\n} else {\n    msg.payload = \"No data available\"; // No feeds, handle error\n    return msg; // Send error message\n}\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":630,"y":1660,"wires":[["9aa3f526ea251554","7926eac9bc340dd0"]]},{"id":"9aa3f526ea251554","type":"pushsafer","z":"c345c2881b47b474","name":"","apikey":"1ce47892b983c27e","notificationtemplate":"90954682dad95d90","x":880,"y":1640,"wires":[[],[]]},{"id":"7926eac9bc340dd0","type":"debug","z":"c345c2881b47b474","name":"debug noti cảnh báo độ ẩm","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","targetType":"msg","statusVal":"","statusType":"auto","x":940,"y":1700,"wires":[]},{"id":"0e5ea25955e3f59a","type":"comment","z":"c345c2881b47b474","name":"Gửi pushsafer thông báo nhiệt độ, độ ẩm || Test nhớ nối inject vào","info":"","x":390,"y":1460,"wires":[]},{"id":"c777f7bdfca1b6c4","type":"ui_form","z":"c345c2881b47b474","name":"","label":"Log In","group":"832deafdf059bc4a","order":0,"width":0,"height":0,"options":[{"label":"Username","value":"Username","type":"text","required":true,"rows":null},{"label":"Password","value":"Password","type":"password","required":true,"rows":null},{"label":"Email","value":"Email","type":"email","required":true,"rows":null}],"formValue":{"Username":"","Password":"","Email":""},"payload":"","submit":"submit","cancel":"","topic":"topic","topicType":"msg","splitLayout":"","className":"","x":90,"y":600,"wires":[["b9637b0d09d4e65b"]]},{"id":"137235a024f9939d","type":"ui_ui_control","z":"c345c2881b47b474","name":"","events":"all","x":900,"y":180,"wires":[[]]},{"id":"2746d0c232fffd6d","type":"ui_toast","z":"c345c2881b47b474","position":"top right","displayTime":"5","highlight":"","sendall":true,"outputs":0,"ok":"OK","cancel":"","raw":false,"className":"","topic":"","name":"","x":1130,"y":360,"wires":[]},{"id":"23605c328c4e2bda","type":"function","z":"c345c2881b47b474","name":"Check login","func":"var dbuser = msg.payload.dbUser;\nvar dbpass = msg.payload.dbPass;\nvar dbemail = msg.payload.dbEmail;\n\n// Extract input password\nvar inputPassword = msg.payload.Password;\nvar inputUser = msg.payload.Username;\nvar inputEmail = msg.payload.Email;\nmsg.payload = 0; // Initialize to 0 before checking\n\n// Check if user exists and validate credentials\nif (dbuser !== undefined && dbpass !== undefined && dbemail !== undefined) {\n    if (inputPassword === dbpass && inputUser === dbuser && inputEmail) {\n        msg.payload = 1; // Set to 1 for success\n        msg.to = dbemail;\n    }\n} else { // User not found\n    msg.payload = 0; // Set to 0 if no user found or invalid credentials\n    msg.to = null;\n}\n\nreturn msg;\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":410,"y":380,"wires":[["a660251e006ff36f"]]},{"id":"ec9e75d08c54d447","type":"ui_button","z":"c345c2881b47b474","name":"","group":"832deafdf059bc4a","order":1,"width":0,"height":0,"passthru":false,"label":"button switch to sign up","tooltip":"","color":"","bgcolor":"","className":"","icon":"","payload":"","payloadType":"str","topic":"topic","topicType":"msg","x":930,"y":440,"wires":[["e9777c8aebcbabfa"]]},{"id":"e9777c8aebcbabfa","type":"function","z":"c345c2881b47b474","name":"sign in","func":"msg.payload = {\n    \"tab\": \"SignUpTab\"\n}\nreturn msg","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":1150,"y":440,"wires":[["d2efa2b4c6ca2166"]]},{"id":"d2efa2b4c6ca2166","type":"ui_ui_control","z":"c345c2881b47b474","name":"To signup","events":"all","x":1320,"y":440,"wires":[[]]},{"id":"b9637b0d09d4e65b","type":"mongodb3 in","z":"c345c2881b47b474","service":"_ext_","configNode":"d502d27466fdea61","name":"db","collection":"juinkinn","operation":"findOne","x":130,"y":720,"wires":[["e7f5b467dca372fb"]]},{"id":"a660251e006ff36f","type":"switch","z":"c345c2881b47b474","name":"","property":"payload","propertyType":"msg","rules":[{"t":"eq","v":"1","vt":"num"},{"t":"eq","v":"0","vt":"num"}],"checkall":"false","repair":false,"outputs":2,"x":510,"y":320,"wires":[["d5eb4cf26e1c87d0","7aeed355e7e216fe","b5dd8d74a3d7dd2b"],["22d2b9d8998ebc44"]]},{"id":"e7f5b467dca372fb","type":"function","z":"c345c2881b47b474","name":"store query results","func":"msg.payload.dbPass = msg.payload.Password;\nmsg.payload.dbName = msg.payload.Name;\nmsg.payload.dbUser = msg.payload.Username;\nmsg.payload.dbEmail = msg.payload.Email;\nreturn msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":350,"y":600,"wires":[["23605c328c4e2bda"]]},{"id":"d5eb4cf26e1c87d0","type":"change","z":"c345c2881b47b474","name":"","rules":[{"t":"set","p":"payload","pt":"msg","to":"{\t    \"tabs\":{\t        \"hide\":[\t            \"SignUpTab\",\t            \"LogInTab\"\t        ]\t    }\t}","tot":"jsonata"}],"action":"","property":"","from":"","to":"","reg":false,"x":640,"y":160,"wires":[["137235a024f9939d"]]},{"id":"7aeed355e7e216fe","type":"change","z":"c345c2881b47b474","name":"","rules":[{"t":"set","p":"payload","pt":"msg","to":"{\t    \"tab\":\t    \"Home\"\t}","tot":"jsonata"}],"action":"","property":"","from":"","to":"","reg":false,"x":680,"y":200,"wires":[["137235a024f9939d"]]},{"id":"22d2b9d8998ebc44","type":"function","z":"c345c2881b47b474","name":"Fail msg","func":"msg.payload = 'Login failed'\nreturn msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":880,"y":360,"wires":[["2746d0c232fffd6d"]]},{"id":"b5dd8d74a3d7dd2b","type":"function","z":"c345c2881b47b474","name":"Success msg","func":"msg.payload = 'Login successfully';\nreturn msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":690,"y":300,"wires":[["cdbbcecac87b09be","15a4957e6e4043b1","0c97e1df15906611"]]},{"id":"cdbbcecac87b09be","type":"ui_toast","z":"c345c2881b47b474","position":"top right","displayTime":"5","highlight":"","sendall":true,"outputs":0,"ok":"OK","cancel":"","raw":false,"className":"","topic":"","name":"","x":1030,"y":240,"wires":[]},{"id":"20aa3b9bf7e5f792","type":"debug","z":"c345c2881b47b474","name":"debug mail cảnh báo nhiệt độ","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","targetType":"msg","statusVal":"","statusType":"auto","x":1130,"y":960,"wires":[]},{"id":"d893e17f0aacffea","type":"e-mail","z":"c345c2881b47b474","server":"smtp.gmail.com","port":"465","authtype":"BASIC","saslformat":true,"token":"oauth2Response.access_token","secure":true,"tls":true,"name":"","dname":"","x":1070,"y":1040,"wires":[]},{"id":"f7aee5a1aabf1ffd","type":"debug","z":"c345c2881b47b474","name":"debug mail cảnh báo độ ẩm","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","targetType":"msg","statusVal":"","statusType":"auto","x":1140,"y":1100,"wires":[]},{"id":"a233d2a6ed50317b","type":"comment","z":"cd9a69d32342d4a2","name":"Các nút bật tắt tính năng như trong báo cáo","info":"","x":190,"y":60,"wires":[]},{"id":"19bd215e2d1f253e","type":"ui_toast","z":"cd9a69d32342d4a2","position":"top right","displayTime":"3","highlight":"","sendall":true,"outputs":0,"ok":"OK","cancel":"","raw":false,"className":"","topic":"","name":"","x":670,"y":140,"wires":[]},{"id":"85e18df2bf360d6e","type":"ui_toast","z":"cd9a69d32342d4a2","position":"top right","displayTime":"3","highlight":"","sendall":true,"outputs":0,"ok":"OK","cancel":"","raw":false,"className":"","topic":"","name":"","x":670,"y":180,"wires":[]},{"id":"6e8206e27ae7f4de","type":"ui_toast","z":"cd9a69d32342d4a2","position":"top right","displayTime":"3","highlight":"","sendall":true,"outputs":0,"ok":"OK","cancel":"","raw":false,"className":"","topic":"","name":"","x":670,"y":220,"wires":[]},{"id":"5402466da6088aaa","type":"ui_toast","z":"cd9a69d32342d4a2","position":"top right","displayTime":"3","highlight":"","sendall":true,"outputs":0,"ok":"OK","cancel":"","raw":false,"className":"","topic":"","name":"","x":670,"y":260,"wires":[]},{"id":"6ca19ba223659ff1","type":"function","z":"cd9a69d32342d4a2","name":"Mở/tắt cảm biến","func":"if (msg.payload == \"true\") {\n    msg.payload = \"on\"\n}\nelse {\n    msg.payload = \"off\"\n}\nreturn msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":340,"y":660,"wires":[[]]},{"id":"2e47f28067c1f6f6","type":"function","z":"cd9a69d32342d4a2","name":"Mở/khóa cửa","func":"//Khóa\nif (msg.payload == \"true\")\n{\n    msg.payload = \"Door locked\"\n}\n//Mở\nelse{\n    msg.payload = \"Door open\"\n}\nreturn msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":330,"y":580,"wires":[["ec59d6b01aef492f","86c5885ff77376d5","ef58f8fcf9c01cd5","a34d3fa8ba6da074"]]},{"id":"ec59d6b01aef492f","type":"mqtt out","z":"cd9a69d32342d4a2","name":"","topic":"/SmartLock/Control/DoorControl","qos":"0","retain":"","respTopic":"","contentType":"","userProps":"","correl":"","expiry":"","broker":"5e5231a0d25397df","x":650,"y":580,"wires":[]},{"id":"86c5885ff77376d5","type":"debug","z":"cd9a69d32342d4a2","name":"debug 37","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","targetType":"msg","statusVal":"","statusType":"auto","x":420,"y":480,"wires":[]},{"id":"ef58f8fcf9c01cd5","type":"ui_text","z":"cd9a69d32342d4a2","group":"","order":2,"width":0,"height":0,"name":"","label":"Trạng thái cửa","format":"{{msg.payload}}","layout":"row-spread","className":"","style":false,"font":"","fontSize":16,"color":"#000000","x":620,"y":520,"wires":[]},{"id":"a34d3fa8ba6da074","type":"http request","z":"cd9a69d32342d4a2","name":"Write data to DB","method":"GET","ret":"txt","paytoqs":"ignore","url":"https://api.thingspeak.com/update?api_key=7PM0WMVTN41DD5KP&field3={{payload}}","tls":"","persist":false,"proxy":"","insecureHTTPParser":false,"authType":"","senderr":false,"headers":[],"x":600,"y":640,"wires":[[]]},{"id":"3d6eb6a2ae082ff3","type":"ui_switch","z":"cd9a69d32342d4a2","name":"","label":"Hệ thống chính","tooltip":"","group":"013f802d82ed5fc6","order":6,"width":0,"height":0,"passthru":true,"decouple":"false","topic":"topic","topicType":"msg","style":"","onvalue":"true","onvalueType":"bool","onicon":"","oncolor":"","offvalue":"false","offvalueType":"bool","officon":"","offcolor":"","animate":false,"className":"","x":200,"y":140,"wires":[["66845a160e9fc96a"]]},{"id":"66845a160e9fc96a","type":"function","z":"cd9a69d32342d4a2","name":"function 12","func":"var msg1 = {};\nvar msg2 = {};\n\n// Check if the switch button sends true or false\nif (msg.payload === true) {\n    // If true, prepare a success notification\n    msg1.payload = \"Hệ thống chính is ON.\";\n    return [msg1, null]; // Send msg1 to output 1\n} else if (msg.payload === false) {\n    // If false, prepare a failure notification\n    msg2.payload = \"Hệ thống chính is OFF.\";\n    return [null, msg2]; // Send msg2 to output 2\n} else {\n    // If the payload is neither true nor false (unexpected case)\n    return null; // Do nothing\n}\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":430,"y":140,"wires":[["19bd215e2d1f253e"]]},{"id":"41f28b3cef729c13","type":"ui_switch","z":"cd9a69d32342d4a2","name":"","label":"Tự động tưới cây","tooltip":"","group":"013f802d82ed5fc6","order":6,"width":0,"height":0,"passthru":true,"decouple":"false","topic":"topic","topicType":"msg","style":"","onvalue":"true","onvalueType":"bool","onicon":"","oncolor":"","offvalue":"false","offvalueType":"bool","officon":"","offcolor":"","animate":false,"className":"","x":190,"y":180,"wires":[["c6b5abb2dcf3d1e3"]]},{"id":"03611ab384871af3","type":"ui_switch","z":"cd9a69d32342d4a2","name":"","label":"Thông báo người dùng","tooltip":"","group":"013f802d82ed5fc6","order":6,"width":0,"height":0,"passthru":true,"decouple":"false","topic":"topic","topicType":"msg","style":"","onvalue":"true","onvalueType":"bool","onicon":"","oncolor":"","offvalue":"false","offvalueType":"bool","officon":"","offcolor":"","animate":false,"className":"","x":180,"y":220,"wires":[["b4f356679860b343"]]},{"id":"4de8f430845ddad8","type":"ui_switch","z":"cd9a69d32342d4a2","name":"","label":"Tự động điều chỉnh môi trường","tooltip":"","group":"013f802d82ed5fc6","order":6,"width":0,"height":0,"passthru":true,"decouple":"false","topic":"topic","topicType":"msg","style":"","onvalue":"true","onvalueType":"bool","onicon":"","oncolor":"","offvalue":"false","offvalueType":"bool","officon":"","offcolor":"","animate":false,"className":"","x":150,"y":260,"wires":[["6ed1469e4cf69123"]]},{"id":"c6b5abb2dcf3d1e3","type":"function","z":"cd9a69d32342d4a2","name":"function 13","func":"var msg1 = {};\nvar msg2 = {};\n\n// Check if the switch button sends true or false\nif (msg.payload === true) {\n    // If true, prepare a success notification\n    msg1.payload = \"Tự động tưới cây is ON.\";\n    return [msg1, null]; // Send msg1 to output 1\n} else if (msg.payload === false) {\n    // If false, prepare a failure notification\n    msg2.payload = \"Tự động tưới cây is OFF.\";\n    return [null, msg2]; // Send msg2 to output 2\n} else {\n    // If the payload is neither true nor false (unexpected case)\n    return null; // Do nothing\n}\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":430,"y":180,"wires":[["85e18df2bf360d6e"]]},{"id":"b4f356679860b343","type":"function","z":"cd9a69d32342d4a2","name":"function 14","func":"var msg1 = {};\nvar msg2 = {};\n\n// Check if the switch button sends true or false\nif (msg.payload === true) {\n    // If true, prepare a success notification\n    msg1.payload = \"Thông báo người dùng is ON.\";\n    return [msg1, null]; // Send msg1 to output 1\n} else if (msg.payload === false) {\n    // If false, prepare a failure notification\n    msg2.payload = \"Thông báo người dùng is OFF.\";\n    return [null, msg2]; // Send msg2 to output 2\n} else {\n    // If the payload is neither true nor false (unexpected case)\n    return null; // Do nothing\n}\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":430,"y":220,"wires":[["6e8206e27ae7f4de"]]},{"id":"6ed1469e4cf69123","type":"function","z":"cd9a69d32342d4a2","name":"function 15","func":"var msg1 = {};\nvar msg2 = {};\n\n// Check if the switch button sends true or false\nif (msg.payload === true) {\n    // If true, prepare a success notification\n    msg1.payload = \"Tự động điều chỉnh môi trường is ON.\";\n    return [msg1, null]; // Send msg1 to output 1\n} else if (msg.payload === false) {\n    // If false, prepare a failure notification\n    msg2.payload = \"Tự động điều chỉnh môi trường is OFF.\";\n    return [null, msg2]; // Send msg2 to output 2\n} else {\n    // If the payload is neither true nor false (unexpected case)\n    return null; // Do nothing\n}\n","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":430,"y":260,"wires":[["5402466da6088aaa"]]},{"id":"3b71a15fca6fe83f","type":"http request","z":"cd9a69d32342d4a2","name":"Write data to DB","method":"GET","ret":"txt","paytoqs":"ignore","url":"https://api.thingspeak.com/update?api_key=7PM0WMVTN41DD5KP&field3={{payload}}","tls":"","persist":false,"proxy":"","insecureHTTPParser":false,"authType":"","senderr":false,"headers":[],"x":740,"y":420,"wires":[[]]},{"id":"9974b635d297840f","type":"mqtt out","z":"cd9a69d32342d4a2","name":"","topic":"/SmartLock/Control/DoorControl","qos":"0","retain":"","respTopic":"","contentType":"","userProps":"","correl":"","expiry":"","broker":"5e5231a0d25397df","x":670,"y":360,"wires":[]},{"id":"9e842889ebb50110","type":"ui_text","z":"cd9a69d32342d4a2","group":"","order":2,"width":0,"height":0,"name":"","label":"Trạng thái cửa","format":"{{msg.payload}}","layout":"row-spread","className":"","style":false,"font":"","fontSize":16,"color":"#000000","x":920,"y":440,"wires":[]}]
+[
+    {
+        "id": "c417f3b57bbe6c9f",
+        "type": "tab",
+        "label": "Sign Up ",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fc5dfa2402324f56",
+        "type": "tab",
+        "label": "Login",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c345c2881b47b474",
+        "type": "tab",
+        "label": "Temperature and Humidity",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cd9a69d32342d4a2",
+        "type": "tab",
+        "label": "Status",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2551a8a3e7230303",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#26a51d",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#26a51d",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#26a51d",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#3edb33",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#26a51d",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "5d4133c9155fdfa4",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5e5231a0d25397df",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.mqtt-dashboard.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "4bd628c619506e78",
+        "type": "mongodb3",
+        "uri": "mongodb+srv://juinkinn:22127478@iot.8xeuq.mongodb.net/?retryWrites=true&w=majority&appName=iot",
+        "name": "IOT",
+        "options": "",
+        "parallelism": "-1"
+    },
+    {
+        "id": "d502d27466fdea61",
+        "type": "mongodb3",
+        "uri": "mongodb+srv://juinkinn:22127478@iot.8xeuq.mongodb.net/?retryWrites=true&w=majority&appName=iot",
+        "name": "IOT",
+        "options": "",
+        "parallelism": "-1"
+    },
+    {
+        "id": "6ee65539a4a175c9",
+        "type": "ui_group",
+        "name": "Wokwi",
+        "tab": "19288c10028a87da",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "19288c10028a87da",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "cb602cb639189da6",
+        "type": "ui_tab",
+        "name": "SignUpTab",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "92c8ffd21bd1d8dc",
+        "type": "ui_group",
+        "name": "Trang Đăng Ký",
+        "tab": "cb602cb639189da6",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a91ad6bdde3226a9",
+        "type": "ui_tab",
+        "name": "LogInTab",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a53a829c94639ee3",
+        "type": "ui_tab",
+        "name": "StatusTab",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "013f802d82ed5fc6",
+        "type": "ui_group",
+        "name": "Trang Quản Lý",
+        "tab": "a53a829c94639ee3",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ece0c58ed53376a1",
+        "type": "ui_group",
+        "name": "ReadFromThingSpeak",
+        "tab": "19288c10028a87da",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "52b92d11329a01c8",
+        "type": "ui_group",
+        "name": "Chart",
+        "tab": "19288c10028a87da",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "90954682dad95d90",
+        "type": "pushsafer-notification-template",
+        "name": "Thông báo",
+        "title": "",
+        "icon": "",
+        "iconcolor": "#ff000d",
+        "sound": "5",
+        "vibration": "2",
+        "priority": "2",
+        "devices": "",
+        "timetolive": "0",
+        "retry": "60",
+        "expire": "",
+        "answer": "0",
+        "url": "",
+        "urltitle": "",
+        "image": "",
+        "image2": "",
+        "image3": ""
+    },
+    {
+        "id": "1ce47892b983c27e",
+        "type": "pushsafer-api-key",
+        "name": ""
+    },
+    {
+        "id": "832deafdf059bc4a",
+        "type": "ui_group",
+        "name": "Trang Đăng Nhập",
+        "tab": "a91ad6bdde3226a9",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "aaeed9dd543ea5e2",
+        "type": "ui_form",
+        "z": "c417f3b57bbe6c9f",
+        "name": "",
+        "label": "Sign Up",
+        "group": "92c8ffd21bd1d8dc",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Name",
+                "value": "Name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Email",
+                "value": "Email",
+                "type": "email",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Username",
+                "value": "Username",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Password",
+                "value": "Password",
+                "type": "password",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Confirm Password",
+                "value": "ConfirmPassword",
+                "type": "password",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "Name": "",
+            "Email": "",
+            "Username": "",
+            "Password": "",
+            "ConfirmPassword": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 60,
+        "y": 100,
+        "wires": [
+            [
+                "6fbdfa4b3247576e"
+            ]
+        ]
+    },
+    {
+        "id": "9b5d25d84b0542db",
+        "type": "ui_ui_control",
+        "z": "c417f3b57bbe6c9f",
+        "name": "",
+        "events": "all",
+        "x": 1120,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "297d816e172e3f53",
+        "type": "change",
+        "z": "c417f3b57bbe6c9f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"tab\":\t    \"LogInTab\"\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 300,
+        "wires": [
+            [
+                "9b5d25d84b0542db",
+                "25ac142f49aa6c47"
+            ]
+        ]
+    },
+    {
+        "id": "6fbdfa4b3247576e",
+        "type": "function",
+        "z": "c417f3b57bbe6c9f",
+        "name": "Check password and already exsist account",
+        "func": "if (msg.payload.Password === msg.payload.ConfirmPassword) {\n    msg.payload = {\n        Password: msg.payload.Password,\n        Name: msg.payload.Name,\n        Username: msg.payload.Username,\n        Email: msg.payload.Email\n    };\n    return msg;\n} else {\n    msg.payload = 'Incorrect password confirmation'\n    return msg; // Stops the flow if passwords do not match\n}\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "b4863a916698576f"
+            ],
+            [
+                "fdede7610fab43f3"
+            ]
+        ]
+    },
+    {
+        "id": "a3aff2926ee8d983",
+        "type": "ui_toast",
+        "z": "c417f3b57bbe6c9f",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 1070,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "b4863a916698576f",
+        "type": "mongodb3 in",
+        "z": "c417f3b57bbe6c9f",
+        "service": "_ext_",
+        "configNode": "d502d27466fdea61",
+        "name": "db",
+        "collection": "juinkinn",
+        "operation": "insertOne",
+        "x": 590,
+        "y": 180,
+        "wires": [
+            [
+                "297d816e172e3f53"
+            ]
+        ]
+    },
+    {
+        "id": "25ac142f49aa6c47",
+        "type": "function",
+        "z": "c417f3b57bbe6c9f",
+        "name": "Signup Success",
+        "func": "msg.payload = 'Signup successfully'\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 180,
+        "wires": [
+            [
+                "a3aff2926ee8d983"
+            ]
+        ]
+    },
+    {
+        "id": "04f06ed0df113be9",
+        "type": "ui_button",
+        "z": "c417f3b57bbe6c9f",
+        "name": "",
+        "group": "92c8ffd21bd1d8dc",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button switch to login",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 580,
+        "wires": [
+            [
+                "4193573e8bbc500e"
+            ]
+        ]
+    },
+    {
+        "id": "4193573e8bbc500e",
+        "type": "function",
+        "z": "c417f3b57bbe6c9f",
+        "name": "sign in",
+        "func": "msg.payload = {\n    \"tab\": \"LogInTab\"\n}\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 580,
+        "wires": [
+            [
+                "28c4e360836d03bc"
+            ]
+        ]
+    },
+    {
+        "id": "28c4e360836d03bc",
+        "type": "ui_ui_control",
+        "z": "c417f3b57bbe6c9f",
+        "name": "To login",
+        "events": "all",
+        "x": 500,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fdede7610fab43f3",
+        "type": "ui_toast",
+        "z": "c417f3b57bbe6c9f",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 610,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7be337e8649d8159",
+        "type": "ui_form",
+        "z": "fc5dfa2402324f56",
+        "name": "",
+        "label": "Log In",
+        "group": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Username",
+                "value": "Username",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Password",
+                "value": "Password",
+                "type": "password",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Email",
+                "value": "Email",
+                "type": "email",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "Username": "",
+            "Password": "",
+            "Email": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 50,
+        "y": 120,
+        "wires": [
+            [
+                "656e3b75f366420e"
+            ]
+        ]
+    },
+    {
+        "id": "d4053ed833fa10b1",
+        "type": "ui_ui_control",
+        "z": "fc5dfa2402324f56",
+        "name": "",
+        "events": "all",
+        "x": 860,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "00e6c1cac37bb015",
+        "type": "ui_toast",
+        "z": "fc5dfa2402324f56",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 870,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "0389cb3287d86b21",
+        "type": "function",
+        "z": "fc5dfa2402324f56",
+        "name": "Check login",
+        "func": "var dbuser = msg.payload.dbUser;\nvar dbpass = msg.payload.dbPass;\nvar dbemail = msg.payload.dbEmail;\n\n// Extract input password\nvar inputPassword = msg.payload.Password;\nvar inputUser = msg.payload.Username;\nmsg.payload = 0; // Initialize to 0 before checking\n\n// Check if user exists and validate credentials\nif (dbuser !== undefined && dbpass !== undefined) {\n    if (inputPassword === dbpass && inputUser === dbuser) {\n        msg.payload = 1; // Set to 1 for success\n    }\n} else { // User not found\n    msg.payload = 0; // Set to 0 if no user found or invalid credentials\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 300,
+        "wires": [
+            [
+                "38801440e030467f"
+            ]
+        ]
+    },
+    {
+        "id": "d75553db4cb95105",
+        "type": "ui_button",
+        "z": "fc5dfa2402324f56",
+        "name": "",
+        "group": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button switch to sign up",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "604acf6c9c6920da"
+            ]
+        ]
+    },
+    {
+        "id": "604acf6c9c6920da",
+        "type": "function",
+        "z": "fc5dfa2402324f56",
+        "name": "sign in",
+        "func": "msg.payload = {\n    \"tab\": \"SignUpTab\"\n}\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 440,
+        "wires": [
+            [
+                "10af102ed95109f4"
+            ]
+        ]
+    },
+    {
+        "id": "10af102ed95109f4",
+        "type": "ui_ui_control",
+        "z": "fc5dfa2402324f56",
+        "name": "To signup",
+        "events": "all",
+        "x": 480,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "656e3b75f366420e",
+        "type": "mongodb3 in",
+        "z": "fc5dfa2402324f56",
+        "service": "_ext_",
+        "configNode": "d502d27466fdea61",
+        "name": "db",
+        "collection": "juinkinn",
+        "operation": "findOne",
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "2ae7958b8a199468"
+            ]
+        ]
+    },
+    {
+        "id": "38801440e030467f",
+        "type": "switch",
+        "z": "fc5dfa2402324f56",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "f5278c0e187fff53",
+                "6ae0fef57dbe352c",
+                "5d39f3424106e723"
+            ],
+            [
+                "faa45a59acbe8cc9"
+            ]
+        ]
+    },
+    {
+        "id": "2ae7958b8a199468",
+        "type": "function",
+        "z": "fc5dfa2402324f56",
+        "name": "store query results",
+        "func": "msg.payload.dbPass = msg.payload.Password;\nmsg.payload.dbName = msg.payload.Name;\nmsg.payload.dbUser = msg.payload.Username;\nmsg.payload.dbEmail = msg.payload.Email;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 300,
+        "wires": [
+            [
+                "0389cb3287d86b21",
+                "529a21640ce4555a"
+            ]
+        ]
+    },
+    {
+        "id": "f5278c0e187fff53",
+        "type": "change",
+        "z": "fc5dfa2402324f56",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"tabs\":{\t        \"hide\":[\t            \"SignUpTab\",\t            \"LogInTab\"\t        ]\t    }\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 40,
+        "wires": [
+            [
+                "d4053ed833fa10b1"
+            ]
+        ]
+    },
+    {
+        "id": "6ae0fef57dbe352c",
+        "type": "change",
+        "z": "fc5dfa2402324f56",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"tab\":\t    \"Home\"\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 80,
+        "wires": [
+            [
+                "d4053ed833fa10b1"
+            ]
+        ]
+    },
+    {
+        "id": "faa45a59acbe8cc9",
+        "type": "function",
+        "z": "fc5dfa2402324f56",
+        "name": "Fail msg",
+        "func": "msg.payload = 'Login failed'\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 180,
+        "wires": [
+            [
+                "00e6c1cac37bb015"
+            ]
+        ]
+    },
+    {
+        "id": "5d39f3424106e723",
+        "type": "function",
+        "z": "fc5dfa2402324f56",
+        "name": "Success msg",
+        "func": "msg.payload = 'Login successfully'\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 140,
+        "wires": [
+            [
+                "88a9d75d6ad09369"
+            ]
+        ]
+    },
+    {
+        "id": "88a9d75d6ad09369",
+        "type": "ui_toast",
+        "z": "fc5dfa2402324f56",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 890,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "529a21640ce4555a",
+        "type": "debug",
+        "z": "fc5dfa2402324f56",
+        "name": "check login results",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "65f25b26784ea065",
+        "type": "mqtt in",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "topic": "/wateringTKMQ/temp",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "5d4133c9155fdfa4",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 1160,
+        "wires": [
+            [
+                "60cd72d7d2d6fe66",
+                "023ef6501b9eba25"
+            ]
+        ]
+    },
+    {
+        "id": "60cd72d7d2d6fe66",
+        "type": "ui_gauge",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "group": "6ee65539a4a175c9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-10",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "50",
+        "diff": false,
+        "className": "",
+        "x": 410,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "d4329d7f0421bc99",
+        "type": "mqtt in",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "topic": "/wateringTKMQ/humid",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "5d4133c9155fdfa4",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 1300,
+        "wires": [
+            [
+                "6c5cac593de66188",
+                "03b767d8a9bcae3e"
+            ]
+        ]
+    },
+    {
+        "id": "6c5cac593de66188",
+        "type": "ui_gauge",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "group": "6ee65539a4a175c9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "50",
+        "seg2": "70",
+        "diff": false,
+        "className": "",
+        "x": 400,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "56d2c7b54c073296",
+        "type": "ui_button",
+        "z": "c345c2881b47b474",
+        "name": "Logout",
+        "group": "6ee65539a4a175c9",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Logout",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 130,
+        "y": 2180,
+        "wires": [
+            [
+                "35b67432214f2d2e"
+            ]
+        ]
+    },
+    {
+        "id": "35b67432214f2d2e",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": "Logout",
+        "func": "msg.payload = {\n    \"tab\": \"LogInTab\"\n}\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 2180,
+        "wires": [
+            [
+                "4e174baf0cc9e214"
+            ]
+        ]
+    },
+    {
+        "id": "4e174baf0cc9e214",
+        "type": "ui_ui_control",
+        "z": "c345c2881b47b474",
+        "name": "Logout",
+        "events": "all",
+        "x": 490,
+        "y": 2180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "22ef84ad1f7df9c3",
+        "type": "thingspeak42",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "delay": "15",
+        "topic1": "Temperature",
+        "topic2": "Humidity",
+        "topic3": "",
+        "topic4": "",
+        "topic5": "",
+        "topic6": "",
+        "topic7": "",
+        "topic8": "",
+        "endpoint": "https://thingspeak.mathworks.com/",
+        "x": 630,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "023ef6501b9eba25",
+        "type": "change",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Temperature",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 1160,
+        "wires": [
+            [
+                "22ef84ad1f7df9c3"
+            ]
+        ]
+    },
+    {
+        "id": "03b767d8a9bcae3e",
+        "type": "change",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Humidity",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 1300,
+        "wires": [
+            [
+                "22ef84ad1f7df9c3"
+            ]
+        ]
+    },
+    {
+        "id": "63e9047d2f73c739",
+        "type": "comment",
+        "z": "c345c2881b47b474",
+        "name": "đọc từ thingspeak để làm average humid and temp",
+        "info": "",
+        "x": 230,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "9a9f4b621899e512",
+        "type": "http request",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/channels/2779429/fields/1.json?api_key=VDIUIVFT61I4DQ0I",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 290,
+        "y": 2020,
+        "wires": [
+            [
+                "d37e46b37c687713"
+            ]
+        ]
+    },
+    {
+        "id": "286d15e69eb8d343",
+        "type": "inject",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 2020,
+        "wires": [
+            [
+                "9a9f4b621899e512"
+            ]
+        ]
+    },
+    {
+        "id": "e88964c0b7624601",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": " average temperature",
+        "func": "let feeds = msg.payload.feeds; // Array of data\nlet totalTemp = 0;\nlet count = 0;\n\n// Lấy ngày hiện tại\nlet currentDate = new Date();\nlet startOfDay = new Date(currentDate.setHours(0, 0, 0, 0)); // 00:00 hôm nay\nlet endOfDay = new Date(currentDate.setHours(23, 59, 59, 999)); // 23:59 hôm nay\n\n// Lọc các bản ghi thuộc ngày hôm nay\nfeeds.forEach(feed => {\n    let timestamp = new Date(feed.created_at); // Lấy timestamp của bản ghi\n    if (timestamp >= startOfDay && timestamp <= endOfDay) {\n        // Nếu bản ghi thuộc ngày hôm nay, cộng dồn giá trị nhiệt độ\n        if (feed.field1) {\n            totalTemp += parseFloat(feed.field1);\n            count++;\n        }\n    }\n});\n\n// Tính giá trị trung bình (average)\nlet avgTemp = count > 0 ? totalTemp / count : 0;\n\n// Làm tròn kết quả\navgTemp = Math.round(avgTemp * 10) / 10;\n\n// Trả về kết quả\nmsg.payload = avgTemp;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 2020,
+        "wires": [
+            [
+                "6ffd39a0858283c9"
+            ]
+        ]
+    },
+    {
+        "id": "203935118c508457",
+        "type": "http request",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/channels/2779429/fields/2.json?api_key=VDIUIVFT61I4DQ0I",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 290,
+        "y": 2100,
+        "wires": [
+            [
+                "aeace762847891fe"
+            ]
+        ]
+    },
+    {
+        "id": "a173facfa56ec537",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": "average humidity",
+        "func": "let feeds = msg.payload.feeds; // Array of data\nlet totalHumidity = 0;\nlet count = 0;\n\n// Lấy ngày hiện tại\nlet currentDate = new Date();\nlet startOfDay = new Date(currentDate.setHours(0, 0, 0, 0)); // 00:00 hôm nay\nlet endOfDay = new Date(currentDate.setHours(23, 59, 59, 999)); // 23:59 hôm nay\n\n// Lọc các bản ghi thuộc ngày hôm nay\nfeeds.forEach(feed => {\n    let timestamp = new Date(feed.created_at); // Lấy timestamp của bản ghi\n    if (timestamp >= startOfDay && timestamp <= endOfDay) {\n        // Nếu bản ghi thuộc ngày hôm nay, cộng dồn giá trị độ ẩm\n        if (feed.field2) {\n            totalHumidity += parseFloat(feed.field2); // Parse field2 values\n            count++;\n        }\n    }\n});\n\n// Tính giá trị trung bình (average) của độ ẩm\nlet avgHumidity = count > 0 ? totalHumidity / count : 0;\n\n// Làm tròn kết quả\navgHumidity = Math.round(avgHumidity * 10) / 10;\n\n// Trả về kết quả\nmsg.payload = avgHumidity;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 2100,
+        "wires": [
+            [
+                "0de0598f206e7994"
+            ]
+        ]
+    },
+    {
+        "id": "6ffd39a0858283c9",
+        "type": "ui_gauge",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "group": "ece0c58ed53376a1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Average Temperature ",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "40",
+        "diff": false,
+        "className": "",
+        "x": 900,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "0de0598f206e7994",
+        "type": "ui_gauge",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "group": "ece0c58ed53376a1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Average Humidity",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "50",
+        "seg2": "70",
+        "diff": false,
+        "className": "",
+        "x": 890,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "2002f6c1104f2061",
+        "type": "inject",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 2100,
+        "wires": [
+            [
+                "203935118c508457"
+            ]
+        ]
+    },
+    {
+        "id": "d37e46b37c687713",
+        "type": "json",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 450,
+        "y": 2020,
+        "wires": [
+            [
+                "e88964c0b7624601"
+            ]
+        ]
+    },
+    {
+        "id": "aeace762847891fe",
+        "type": "json",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 450,
+        "y": 2100,
+        "wires": [
+            [
+                "a173facfa56ec537"
+            ]
+        ]
+    },
+    {
+        "id": "497c34bae3fefb27",
+        "type": "ui_chart",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "group": "52b92d11329a01c8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 850,
+        "y": 1840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2bf280a4b7b926a",
+        "type": "ui_chart",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "group": "52b92d11329a01c8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Humidity Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 840,
+        "y": 1900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d7cd46f4432f9a71",
+        "type": "inject",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1840,
+        "wires": [
+            [
+                "6c0fc84494ec4047"
+            ]
+        ]
+    },
+    {
+        "id": "235292ee603c216c",
+        "type": "inject",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1900,
+        "wires": [
+            [
+                "4148f5ac2858b1f2"
+            ]
+        ]
+    },
+    {
+        "id": "6c0fc84494ec4047",
+        "type": "http request",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/channels/2779429/fields/1.json?api_key=VDIUIVFT61I4DQ0I",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 310,
+        "y": 1840,
+        "wires": [
+            [
+                "08dc65345065592a"
+            ]
+        ]
+    },
+    {
+        "id": "4148f5ac2858b1f2",
+        "type": "http request",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/channels/2779429/fields/2.json?api_key=VDIUIVFT61I4DQ0I",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 310,
+        "y": 1900,
+        "wires": [
+            [
+                "cedc3d067c489198"
+            ]
+        ]
+    },
+    {
+        "id": "08dc65345065592a",
+        "type": "json",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 470,
+        "y": 1840,
+        "wires": [
+            [
+                "a91b4bb61d04b298"
+            ]
+        ]
+    },
+    {
+        "id": "cedc3d067c489198",
+        "type": "json",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 470,
+        "y": 1900,
+        "wires": [
+            [
+                "3e9bf465e918f445"
+            ]
+        ]
+    },
+    {
+        "id": "a91b4bb61d04b298",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": "read temperature",
+        "func": "let feeds = msg.payload.feeds; // Array of data\n\nif (feeds.length > 0) {\n    // Lấy giá trị field1 (nhiệt độ) từ bản ghi gần nhất\n    let latestTemp = parseFloat(feeds[feeds.length - 1].field1);\n\n    // Return giá trị gần nhất\n    msg.payload = latestTemp;\n} else {\n    msg.payload = \"No data latestTemp available\"; // Trường hợp không có dữ liệu\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 1840,
+        "wires": [
+            [
+                "497c34bae3fefb27"
+            ]
+        ]
+    },
+    {
+        "id": "3e9bf465e918f445",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": "read humidity",
+        "func": "let feeds = msg.payload.feeds; // Array of data\n\nif (feeds.length > 0) {\n    // Lấy giá trị field1 (nhiệt độ) từ bản ghi gần nhất\n    let latestHumidity = parseFloat(feeds[feeds.length - 1].field2);\n\n    // Return giá trị gần nhất\n    msg.payload = latestHumidity;\n} else {\n    msg.payload = \"No data latestHumidity available\"; // Trường hợp không có dữ liệu\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1900,
+        "wires": [
+            [
+                "b2bf280a4b7b926a"
+            ]
+        ]
+    },
+    {
+        "id": "f3d2a9cade015ee1",
+        "type": "e-mail",
+        "z": "c345c2881b47b474",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "",
+        "dname": "",
+        "x": 1090,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "7cd6284e1d2d48c2",
+        "type": "comment",
+        "z": "c345c2881b47b474",
+        "name": "Gửi mail thông báo nhiệt độ, độ ẩm || Test nhớ nối inject vào",
+        "info": "",
+        "x": 280,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "b2d408084e0132ae",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": "gửi mail cảnh báo nhiệt độ",
+        "func": "// Initialize the notification state for high and low temperature\nlet notifiedHigh = context.get('notifiedHigh') || false;\nlet notifiedLow = context.get('notifiedLow') || false;\n\n// Get the stored email address from login results\nlet dbEmail = msg.payload.Email; // Email to send the notification\nmsg.payload.dbEmail = msg.payload.Email;\n// Get the feeds data from the HTTP request\nlet feeds = msg.payload.feeds; // Array of data\n\nif (feeds.length > 0) {\n    // Extract the latest temperature\n    let latestTemp = parseFloat(feeds[feeds.length - 1].field1);\n\n    // Check for high temperature alert\n    if (latestTemp > 30) {\n        if (!notifiedHigh) {\n            // Send high temperature notification\n            context.set('notifiedHigh', true); // Mark as notified\n            context.set('notifiedLow', false); // Reset low temp notification state\n            msg.topic = \"Cảnh báo nhiệt độ cao\";\n            msg.payload = `Cảnh báo! Nhiệt độ cao: ${latestTemp}°C.`;\n  //          msg.to = dbEmail; // Set recipient email\n            return msg; // Send the email\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Check for low temperature alert\n    if (latestTemp < 18) {\n        if (!notifiedLow) {\n            // Send low temperature notification\n            context.set('notifiedLow', true); // Mark as notified\n            context.set('notifiedHigh', false); // Reset high temp notification state\n            msg.topic = \"Cảnh báo nhiệt độ thấp\";\n            msg.payload = `Cảnh báo! Nhiệt độ thấp: ${latestTemp}°C.`;\n       //     msg.to = dbEmail; // Set recipient email\n            return msg; // Send the email\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Reset notification states when temperature is normal\n    if (latestTemp >= 18 && latestTemp <= 30) {\n        context.set('notifiedHigh', false);\n        context.set('notifiedLow', false);\n        msg.payload = latestTemp; // Pass the temperature for display in the gauge\n        return msg; // Continue to next node, no notification\n    }\n} else {\n    msg.payload = \"No data available\"; // No feeds, handle error\n    return msg; // Send error message\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 840,
+        "wires": [
+            [
+                "f3d2a9cade015ee1",
+                "20aa3b9bf7e5f792"
+            ]
+        ]
+    },
+    {
+        "id": "429d69f5a607f69e",
+        "type": "inject",
+        "z": "c345c2881b47b474",
+        "name": "inverval 2 phut",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "120",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "15a4957e6e4043b1",
+        "type": "http request",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/channels/2779429/fields/1.json?api_key=VDIUIVFT61I4DQ0I",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 290,
+        "y": 920,
+        "wires": [
+            [
+                "652fef3e5ea77686"
+            ]
+        ]
+    },
+    {
+        "id": "652fef3e5ea77686",
+        "type": "json",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 490,
+        "y": 920,
+        "wires": [
+            [
+                "b2d408084e0132ae"
+            ]
+        ]
+    },
+    {
+        "id": "0c97e1df15906611",
+        "type": "http request",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/channels/2779429/fields/2.json?api_key=VDIUIVFT61I4DQ0I",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 290,
+        "y": 1020,
+        "wires": [
+            [
+                "98fa0d3866c1cf3a"
+            ]
+        ]
+    },
+    {
+        "id": "98fa0d3866c1cf3a",
+        "type": "json",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 490,
+        "y": 1040,
+        "wires": [
+            [
+                "7a62ac47d3654bfe"
+            ]
+        ]
+    },
+    {
+        "id": "7a62ac47d3654bfe",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": "gửi mail cảnh báo độ ẩm",
+        "func": "// Initialize the notification state for high and low humidity\nlet notifiedHigh = context.get('notifiedHigh') || false;\nlet notifiedLow = context.get('notifiedLow') || false;\n\n// Get the stored email address from login results\n//let dbEmail = msg.payload.Email; // Email to send the notification\n\n// Get the feeds data from the HTTP request\nlet feeds = msg.payload.feeds; // Array of data\n\nif (feeds.length > 0) {\n    // Extract the latest humidity\n    let latestHumidity = parseFloat(feeds[feeds.length - 1].field2);\n\n    // Check for high humidity alert\n    if (latestHumidity > 70) {\n        if (!notifiedHigh) {\n            // Send high humidity notification\n            context.set('notifiedHigh', true); // Mark as notified\n            context.set('notifiedLow', false); // Reset low humidity notification state\n            msg.topic = \"Cảnh báo độ ẩm cao\";\n            msg.payload = `Cảnh báo! Độ ẩm cao: ${latestHumidity}%.`;\n  //          msg.to = dbEmail; // Set recipient email\n            return msg; // Send the email\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Check for low humidity alert\n    if (latestHumidity < 40) {\n        if (!notifiedLow) {\n            // Send low humidity notification\n            context.set('notifiedLow', true); // Mark as notified\n            context.set('notifiedHigh', false); // Reset high humidity notification state\n            msg.topic = \"Cảnh báo độ ẩm thấp\";\n            msg.payload = `Cảnh báo! Độ ẩm thấp: ${latestHumidity}%.`;\n    //        msg.to = dbEmail; // Set recipient email\n            return msg; // Send the email\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Reset notification states when humidity is normal\n    if (latestHumidity >= 40 && latestHumidity <= 70) {\n        context.set('notifiedHigh', false);\n        context.set('notifiedLow', false);\n        msg.payload = latestHumidity; // Pass the humidity for display in the gauge\n        return msg; // Continue to next node, no notification\n    }\n} else {\n    msg.payload = \"No data available\"; // No feeds, handle error\n    return msg; // Send error message\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 1040,
+        "wires": [
+            [
+                "d893e17f0aacffea",
+                "f7aee5a1aabf1ffd"
+            ]
+        ]
+    },
+    {
+        "id": "296abbb103f655ab",
+        "type": "comment",
+        "z": "c345c2881b47b474",
+        "name": "Chỉ lấy giá trị gần nhất",
+        "info": "",
+        "x": 120,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "613304e4ec5e86ec",
+        "type": "comment",
+        "z": "c345c2881b47b474",
+        "name": "Lấy toàn bộ các giá trị",
+        "info": "",
+        "x": 660,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "bcd2c38e1aa02df6",
+        "type": "debug",
+        "z": "c345c2881b47b474",
+        "name": "debug 41",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "48927b10ed55449d",
+        "type": "comment",
+        "z": "c345c2881b47b474",
+        "name": "pushsafer",
+        "info": "",
+        "x": 80,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "fe8b7aec7ce76955",
+        "type": "pushsafer",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "apikey": "1ce47892b983c27e",
+        "notificationtemplate": "90954682dad95d90",
+        "x": 880,
+        "y": 1480,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "be8bf6bafac268f8",
+        "type": "inject",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "046d3bef5b7fd70e",
+        "type": "inject",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "to",
+                "v": "nguyenhoangtrungkien92@gmail.com",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 960,
+        "wires": [
+            [
+                "15a4957e6e4043b1",
+                "0c97e1df15906611"
+            ]
+        ]
+    },
+    {
+        "id": "696e5a7a4ccf0581",
+        "type": "http request",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/channels/2779429/fields/1.json?api_key=VDIUIVFT61I4DQ0I",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 270,
+        "y": 1520,
+        "wires": [
+            [
+                "2a59b1e791043f87"
+            ]
+        ]
+    },
+    {
+        "id": "2a59b1e791043f87",
+        "type": "json",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 430,
+        "y": 1520,
+        "wires": [
+            [
+                "25fa8b7fe962bd4d"
+            ]
+        ]
+    },
+    {
+        "id": "25fa8b7fe962bd4d",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": "gửi đth cảnh báo nhiệt độ",
+        "func": "// Initialize the notification state for high and low temperature\nlet notifiedHigh = context.get('notifiedHigh') || false;\nlet notifiedLow = context.get('notifiedLow') || false;\n\n// Get the feeds data from the HTTP request\nlet feeds = msg.payload.feeds; // Array of data\n\nif (feeds.length > 0) {\n    // Extract the latest temperature\n    let latestTemp = parseFloat(feeds[feeds.length - 1].field1);\n\n    // Check for high temperature alert\n    if (latestTemp > 30) {\n        if (!notifiedHigh) {\n            // Send high temperature notification\n            context.set('notifiedHigh', true); // Mark as notified\n            context.set('notifiedLow', false); // Reset low temp notification state\n            msg.topic = \"Cảnh báo nhiệt độ cao\";\n            msg.payload = `Nhiệt độ cao: ${latestTemp}°C.`;\n            return msg; // Send the message to Pushsafer node\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Check for low temperature alert\n    if (latestTemp < 18) {\n        if (!notifiedLow) {\n            // Send low temperature notification\n            context.set('notifiedLow', true); // Mark as notified\n            context.set('notifiedHigh', false); // Reset high temp notification state\n            msg.topic = \"Cảnh báo nhiệt độ thấp\";\n            msg.payload = `Nhiệt độ thấp: ${latestTemp}°C.`;\n            return msg; // Send the message to Pushsafer node\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Reset notification states when temperature is normal\n    if (latestTemp >= 18 && latestTemp <= 30) {\n        context.set('notifiedHigh', false);\n        context.set('notifiedLow', false);\n        msg.payload = latestTemp; // Pass the temperature for display in the gauge\n        return msg; // Continue to next node, no notification\n    }\n} else {\n    msg.payload = \"No data available\"; // No feeds, handle error\n    return msg; // Send error message\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1520,
+        "wires": [
+            [
+                "fe8b7aec7ce76955",
+                "bdb7ee6eaab38723"
+            ]
+        ]
+    },
+    {
+        "id": "bdb7ee6eaab38723",
+        "type": "debug",
+        "z": "c345c2881b47b474",
+        "name": "debug noti cảnh báo nhiệt độ",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "0f7eecef3bb63821",
+        "type": "http request",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/channels/2779429/fields/2.json?api_key=VDIUIVFT61I4DQ0I",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 270,
+        "y": 1660,
+        "wires": [
+            [
+                "05704628d338b253"
+            ]
+        ]
+    },
+    {
+        "id": "05704628d338b253",
+        "type": "json",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 430,
+        "y": 1660,
+        "wires": [
+            [
+                "05e13a03043d0c66"
+            ]
+        ]
+    },
+    {
+        "id": "05e13a03043d0c66",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": "gửi đth cảnh báo độ ẩm",
+        "func": "// Initialize the notification state for high and low humidity\nlet notifiedHighHumidity = context.get('notifiedHighHumidity') || false;\nlet notifiedLowHumidity = context.get('notifiedLowHumidity') || false;\n\n// Get the feeds data from the HTTP request\nlet feeds = msg.payload.feeds; // Array of data\n\nif (feeds.length > 0) {\n    // Extract the latest humidity\n    let latestHumidity = parseFloat(feeds[feeds.length - 1].field2);\n\n    // Check for low humidity alert\n    if (latestHumidity < 40) {\n        if (!notifiedLowHumidity) {\n            // Send low humidity notification\n            context.set('notifiedLowHumidity', true); // Mark as notified\n            context.set('notifiedHighHumidity', false); // Reset high humidity notification state\n            msg.topic = \"Cảnh báo độ ẩm thấp\";\n            msg.payload = `Độ ẩm thấp: ${latestHumidity}%.`;\n            return msg; // Send the message to Pushsafer node\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Check for high humidity alert\n    if (latestHumidity > 70) {\n        if (!notifiedHighHumidity) {\n            // Send high humidity notification\n            context.set('notifiedHighHumidity', true); // Mark as notified\n            context.set('notifiedLowHumidity', false); // Reset low humidity notification state\n            msg.topic = \"Cảnh báo độ ẩm cao\";\n            msg.payload = `Độ ẩm cao: ${latestHumidity}%.`;\n            return msg; // Send the message to Pushsafer node\n        } else {\n            return null; // Already notified, do nothing\n        }\n    }\n\n    // Reset notification states when humidity is in the normal range\n    if (latestHumidity >= 40 && latestHumidity <= 70) {\n        context.set('notifiedHighHumidity', false);\n        context.set('notifiedLowHumidity', false);\n        msg.payload = latestHumidity; // Pass the humidity for display in the gauge\n        return msg; // Continue to next node, no notification\n    }\n} else {\n    msg.payload = \"No data available\"; // No feeds, handle error\n    return msg; // Send error message\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1660,
+        "wires": [
+            [
+                "9aa3f526ea251554",
+                "7926eac9bc340dd0"
+            ]
+        ]
+    },
+    {
+        "id": "9aa3f526ea251554",
+        "type": "pushsafer",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "apikey": "1ce47892b983c27e",
+        "notificationtemplate": "90954682dad95d90",
+        "x": 880,
+        "y": 1640,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7926eac9bc340dd0",
+        "type": "debug",
+        "z": "c345c2881b47b474",
+        "name": "debug noti cảnh báo độ ẩm",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "0e5ea25955e3f59a",
+        "type": "comment",
+        "z": "c345c2881b47b474",
+        "name": "Gửi pushsafer thông báo nhiệt độ, độ ẩm || Test nhớ nối inject vào",
+        "info": "",
+        "x": 390,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "c777f7bdfca1b6c4",
+        "type": "ui_form",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "label": "Log In",
+        "group": "832deafdf059bc4a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Username",
+                "value": "Username",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Password",
+                "value": "Password",
+                "type": "password",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Email",
+                "value": "Email",
+                "type": "email",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "Username": "",
+            "Password": "",
+            "Email": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 90,
+        "y": 600,
+        "wires": [
+            [
+                "b9637b0d09d4e65b"
+            ]
+        ]
+    },
+    {
+        "id": "137235a024f9939d",
+        "type": "ui_ui_control",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "events": "all",
+        "x": 900,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2746d0c232fffd6d",
+        "type": "ui_toast",
+        "z": "c345c2881b47b474",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 1130,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "23605c328c4e2bda",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": "Check login",
+        "func": "var dbuser = msg.payload.dbUser;\nvar dbpass = msg.payload.dbPass;\nvar dbemail = msg.payload.dbEmail;\n\n// Extract input password\nvar inputPassword = msg.payload.Password;\nvar inputUser = msg.payload.Username;\nvar inputEmail = msg.payload.Email;\nmsg.payload = 0; // Initialize to 0 before checking\n\n// Check if user exists and validate credentials\nif (dbuser !== undefined && dbpass !== undefined && dbemail !== undefined) {\n    if (inputPassword === dbpass && inputUser === dbuser && inputEmail) {\n        msg.payload = 1; // Set to 1 for success\n        msg.to = dbemail;\n    }\n} else { // User not found\n    msg.payload = 0; // Set to 0 if no user found or invalid credentials\n    msg.to = null;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 380,
+        "wires": [
+            [
+                "a660251e006ff36f"
+            ]
+        ]
+    },
+    {
+        "id": "ec9e75d08c54d447",
+        "type": "ui_button",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "group": "832deafdf059bc4a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button switch to sign up",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 930,
+        "y": 440,
+        "wires": [
+            [
+                "e9777c8aebcbabfa"
+            ]
+        ]
+    },
+    {
+        "id": "e9777c8aebcbabfa",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": "sign in",
+        "func": "msg.payload = {\n    \"tab\": \"SignUpTab\"\n}\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 440,
+        "wires": [
+            [
+                "d2efa2b4c6ca2166"
+            ]
+        ]
+    },
+    {
+        "id": "d2efa2b4c6ca2166",
+        "type": "ui_ui_control",
+        "z": "c345c2881b47b474",
+        "name": "To signup",
+        "events": "all",
+        "x": 1320,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b9637b0d09d4e65b",
+        "type": "mongodb3 in",
+        "z": "c345c2881b47b474",
+        "service": "_ext_",
+        "configNode": "d502d27466fdea61",
+        "name": "db",
+        "collection": "juinkinn",
+        "operation": "findOne",
+        "x": 130,
+        "y": 720,
+        "wires": [
+            [
+                "e7f5b467dca372fb"
+            ]
+        ]
+    },
+    {
+        "id": "a660251e006ff36f",
+        "type": "switch",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 510,
+        "y": 320,
+        "wires": [
+            [
+                "d5eb4cf26e1c87d0",
+                "7aeed355e7e216fe",
+                "b5dd8d74a3d7dd2b"
+            ],
+            [
+                "22d2b9d8998ebc44"
+            ]
+        ]
+    },
+    {
+        "id": "e7f5b467dca372fb",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": "store query results",
+        "func": "msg.payload.dbPass = msg.payload.Password;\nmsg.payload.dbName = msg.payload.Name;\nmsg.payload.dbUser = msg.payload.Username;\nmsg.payload.dbEmail = msg.payload.Email;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 600,
+        "wires": [
+            [
+                "23605c328c4e2bda"
+            ]
+        ]
+    },
+    {
+        "id": "d5eb4cf26e1c87d0",
+        "type": "change",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"tabs\":{\t        \"hide\":[\t            \"SignUpTab\",\t            \"LogInTab\"\t        ]\t    }\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 160,
+        "wires": [
+            [
+                "137235a024f9939d"
+            ]
+        ]
+    },
+    {
+        "id": "7aeed355e7e216fe",
+        "type": "change",
+        "z": "c345c2881b47b474",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"tab\":\t    \"Home\"\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 200,
+        "wires": [
+            [
+                "137235a024f9939d"
+            ]
+        ]
+    },
+    {
+        "id": "22d2b9d8998ebc44",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": "Fail msg",
+        "func": "msg.payload = 'Login failed'\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 360,
+        "wires": [
+            [
+                "2746d0c232fffd6d"
+            ]
+        ]
+    },
+    {
+        "id": "b5dd8d74a3d7dd2b",
+        "type": "function",
+        "z": "c345c2881b47b474",
+        "name": "Success msg",
+        "func": "msg.payload = 'Login successfully';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 300,
+        "wires": [
+            [
+                "cdbbcecac87b09be",
+                "15a4957e6e4043b1",
+                "0c97e1df15906611"
+            ]
+        ]
+    },
+    {
+        "id": "cdbbcecac87b09be",
+        "type": "ui_toast",
+        "z": "c345c2881b47b474",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 1030,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "20aa3b9bf7e5f792",
+        "type": "debug",
+        "z": "c345c2881b47b474",
+        "name": "debug mail cảnh báo nhiệt độ",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "d893e17f0aacffea",
+        "type": "e-mail",
+        "z": "c345c2881b47b474",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "",
+        "dname": "",
+        "x": 1070,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "f7aee5a1aabf1ffd",
+        "type": "debug",
+        "z": "c345c2881b47b474",
+        "name": "debug mail cảnh báo độ ẩm",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "a233d2a6ed50317b",
+        "type": "comment",
+        "z": "cd9a69d32342d4a2",
+        "name": "Các nút bật tắt tính năng như trong báo cáo",
+        "info": "",
+        "x": 190,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "19bd215e2d1f253e",
+        "type": "ui_toast",
+        "z": "cd9a69d32342d4a2",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 670,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "85e18df2bf360d6e",
+        "type": "ui_toast",
+        "z": "cd9a69d32342d4a2",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 670,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "6e8206e27ae7f4de",
+        "type": "ui_toast",
+        "z": "cd9a69d32342d4a2",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 670,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "5402466da6088aaa",
+        "type": "ui_toast",
+        "z": "cd9a69d32342d4a2",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 670,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "6ca19ba223659ff1",
+        "type": "function",
+        "z": "cd9a69d32342d4a2",
+        "name": "Mở/tắt cảm biến",
+        "func": "if (msg.payload == \"true\") {\n    msg.payload = \"on\"\n}\nelse {\n    msg.payload = \"off\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e47f28067c1f6f6",
+        "type": "function",
+        "z": "cd9a69d32342d4a2",
+        "name": "Mở/khóa cửa",
+        "func": "//Khóa\nif (msg.payload == \"true\")\n{\n    msg.payload = \"Door locked\"\n}\n//Mở\nelse{\n    msg.payload = \"Door open\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 580,
+        "wires": [
+            [
+                "ec59d6b01aef492f",
+                "86c5885ff77376d5",
+                "ef58f8fcf9c01cd5",
+                "a34d3fa8ba6da074"
+            ]
+        ]
+    },
+    {
+        "id": "ec59d6b01aef492f",
+        "type": "mqtt out",
+        "z": "cd9a69d32342d4a2",
+        "name": "",
+        "topic": "/SmartLock/Control/DoorControl",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5e5231a0d25397df",
+        "x": 650,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "86c5885ff77376d5",
+        "type": "debug",
+        "z": "cd9a69d32342d4a2",
+        "name": "debug 37",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "ef58f8fcf9c01cd5",
+        "type": "ui_text",
+        "z": "cd9a69d32342d4a2",
+        "group": "",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Trạng thái cửa",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "a34d3fa8ba6da074",
+        "type": "http request",
+        "z": "cd9a69d32342d4a2",
+        "name": "Write data to DB",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/update?api_key=7PM0WMVTN41DD5KP&field3={{payload}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 600,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3d6eb6a2ae082ff3",
+        "type": "ui_switch",
+        "z": "cd9a69d32342d4a2",
+        "name": "",
+        "label": "Hệ thống chính",
+        "tooltip": "",
+        "group": "013f802d82ed5fc6",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "66845a160e9fc96a"
+            ]
+        ]
+    },
+    {
+        "id": "66845a160e9fc96a",
+        "type": "function",
+        "z": "cd9a69d32342d4a2",
+        "name": "function 12",
+        "func": "var msg1 = {};\nvar msg2 = {};\n\n// Check if the switch button sends true or false\nif (msg.payload === true) {\n    // If true, prepare a success notification\n    msg1.payload = \"Hệ thống chính is ON.\";\n    return [msg1, null]; // Send msg1 to output 1\n} else if (msg.payload === false) {\n    // If false, prepare a failure notification\n    msg2.payload = \"Hệ thống chính is OFF.\";\n    return [null, msg2]; // Send msg2 to output 2\n} else {\n    // If the payload is neither true nor false (unexpected case)\n    return null; // Do nothing\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "19bd215e2d1f253e"
+            ]
+        ]
+    },
+    {
+        "id": "41f28b3cef729c13",
+        "type": "ui_switch",
+        "z": "cd9a69d32342d4a2",
+        "name": "",
+        "label": "Tự động tưới cây",
+        "tooltip": "",
+        "group": "013f802d82ed5fc6",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "c6b5abb2dcf3d1e3"
+            ]
+        ]
+    },
+    {
+        "id": "03611ab384871af3",
+        "type": "ui_switch",
+        "z": "cd9a69d32342d4a2",
+        "name": "",
+        "label": "Thông báo người dùng",
+        "tooltip": "",
+        "group": "013f802d82ed5fc6",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "b4f356679860b343"
+            ]
+        ]
+    },
+    {
+        "id": "4de8f430845ddad8",
+        "type": "ui_switch",
+        "z": "cd9a69d32342d4a2",
+        "name": "",
+        "label": "Tự động điều chỉnh môi trường",
+        "tooltip": "",
+        "group": "013f802d82ed5fc6",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 260,
+        "wires": [
+            [
+                "6ed1469e4cf69123"
+            ]
+        ]
+    },
+    {
+        "id": "c6b5abb2dcf3d1e3",
+        "type": "function",
+        "z": "cd9a69d32342d4a2",
+        "name": "function 13",
+        "func": "var msg1 = {};\nvar msg2 = {};\n\n// Check if the switch button sends true or false\nif (msg.payload === true) {\n    // If true, prepare a success notification\n    msg1.payload = \"Tự động tưới cây is ON.\";\n    return [msg1, null]; // Send msg1 to output 1\n} else if (msg.payload === false) {\n    // If false, prepare a failure notification\n    msg2.payload = \"Tự động tưới cây is OFF.\";\n    return [null, msg2]; // Send msg2 to output 2\n} else {\n    // If the payload is neither true nor false (unexpected case)\n    return null; // Do nothing\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "85e18df2bf360d6e"
+            ]
+        ]
+    },
+    {
+        "id": "b4f356679860b343",
+        "type": "function",
+        "z": "cd9a69d32342d4a2",
+        "name": "function 14",
+        "func": "var msg1 = {};\nvar msg2 = {};\n\n// Check if the switch button sends true or false\nif (msg.payload === true) {\n    // If true, prepare a success notification\n    msg1.payload = \"Thông báo người dùng is ON.\";\n    return [msg1, null]; // Send msg1 to output 1\n} else if (msg.payload === false) {\n    // If false, prepare a failure notification\n    msg2.payload = \"Thông báo người dùng is OFF.\";\n    return [null, msg2]; // Send msg2 to output 2\n} else {\n    // If the payload is neither true nor false (unexpected case)\n    return null; // Do nothing\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 220,
+        "wires": [
+            [
+                "6e8206e27ae7f4de"
+            ]
+        ]
+    },
+    {
+        "id": "6ed1469e4cf69123",
+        "type": "function",
+        "z": "cd9a69d32342d4a2",
+        "name": "function 15",
+        "func": "var msg1 = {};\nvar msg2 = {};\n\n// Check if the switch button sends true or false\nif (msg.payload === true) {\n    // If true, prepare a success notification\n    msg1.payload = \"Tự động điều chỉnh môi trường is ON.\";\n    return [msg1, null]; // Send msg1 to output 1\n} else if (msg.payload === false) {\n    // If false, prepare a failure notification\n    msg2.payload = \"Tự động điều chỉnh môi trường is OFF.\";\n    return [null, msg2]; // Send msg2 to output 2\n} else {\n    // If the payload is neither true nor false (unexpected case)\n    return null; // Do nothing\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "5402466da6088aaa"
+            ]
+        ]
+    },
+    {
+        "id": "3b71a15fca6fe83f",
+        "type": "http request",
+        "z": "cd9a69d32342d4a2",
+        "name": "Write data to DB",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/update?api_key=7PM0WMVTN41DD5KP&field3={{payload}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 740,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9974b635d297840f",
+        "type": "mqtt out",
+        "z": "cd9a69d32342d4a2",
+        "name": "",
+        "topic": "/SmartLock/Control/DoorControl",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5e5231a0d25397df",
+        "x": 670,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "9e842889ebb50110",
+        "type": "ui_text",
+        "z": "cd9a69d32342d4a2",
+        "group": "",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Trạng thái cửa",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 920,
+        "y": 440,
+        "wires": []
+    }
+]
