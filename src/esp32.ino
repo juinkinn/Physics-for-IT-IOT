@@ -31,6 +31,10 @@ WiFiClient wifiClient;
 PubSubClient mqttClient(wifiClient);
 AccelStepper fanStepper(AccelStepper::FULL4WIRE, 3, 2, 13, 14);
 
+bool IOTsystem = true;
+bool watersystem = true;
+bool setupenv = true;
+
 int pirState = LOW;
 unsigned long lastServoRunTime = 0;      // Stores the last time the servo was activated
 const unsigned long servoInterval = 3000;  // Every 3s servo runs
@@ -59,9 +63,11 @@ void mqttConnect() {
       Serial.println("connected");
 
       //***Subscribe all topic you need***
+      mqttClient.subscribe("/wateringTKMQ/system", 1);
+      mqttClient.subscribe("/wateringTKMQ/autowatering", 1);
+      mqttClient.subscribe("/wateringTKMQ/env", 1);
       mqttClient.subscribe("/wateringTKMQ/temp");
       mqttClient.subscribe("/wateringTKMQ/humid");
-     
     }
     else {
       Serial.println("try again in 5 seconds");
@@ -72,6 +78,11 @@ void mqttConnect() {
 
 //MQTT Receiver
 void callback(char* topic, byte* message, unsigned int length) {
+  if (String(topic) == "/wateringTKMQ/temp" || String(topic) == "/wateringTKMQ/humid") {
+    return; // Skip processing for these topics
+  }
+
+  Serial.print("Received message on topic: ");
   Serial.println(topic);
   String strMsg;
   for(int i=0; i<length; i++) {
@@ -80,7 +91,32 @@ void callback(char* topic, byte* message, unsigned int length) {
   Serial.println(strMsg);
 
   //***Code here to process the received package***
-
+  if (String(topic) == "/wateringTKMQ/system") {
+    if (strMsg == "OFF"){
+      IOTsystem = false;
+      Serial.println("System turned OFF via MQTT.");
+    }
+    else {
+      IOTsystem = true;
+      Serial.println("System turned ON via MQTT.");
+    } 
+  }
+  else if (String(topic) == "/wateringTKMQ/autowatering") {
+    if (strMsg == "OFF") {
+      watersystem = false;
+    }
+    else {
+      watersystem = true;
+    }
+  }
+  else if (String(topic) == "/wateringTKMQ/env") {
+    if (strMsg == "OFF") {
+      setupenv = false;
+    }
+    else {
+      setupenv = true;
+    }
+  }
 }
 
 void setup() {
@@ -89,7 +125,7 @@ void setup() {
   wifiConnect();
   mqttClient.setServer(mqttServer, port);
   mqttClient.setCallback(callback);
-  mqttClient.setKeepAlive( 90 );
+  mqttClient.setKeepAlive(90);
 
   lcd.init();
   lcd.backlight();
@@ -115,6 +151,9 @@ void loop() {
   }
   mqttClient.loop();
 
+  if (!IOTsystem) {
+    return;
+  }
   // Read temperature and humidity from the DHT11 sensor
   float temperature = dht.readTemperature();
   float humidity = dht.readHumidity();
@@ -129,31 +168,23 @@ void loop() {
 
   // Publish to respective topics
   mqttClient.publish("/wateringTKMQ/temp", tempBuffer);
-  Serial.println("Published temperature data.");
-
   mqttClient.publish("/wateringTKMQ/humid", humidBuffer);
-  Serial.println("Published humidity data.");
-
 
   // Display temperature, humidity, and light levels on the LCD screen
-  lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Temp: " + String(temperature) + " C");
-  delay(2000);
-  lcd.setCursor(0, 0);
+  lcd.setCursor(0, 1);
   lcd.print("Humid: " + String(humidity) + " %");
-  delay(2000);
 
   // Enable fan
   bool manualOverride = digitalRead(SWITCHPIN);
-  if (temperature > 30.0 || manualOverride) {
+  if ((temperature > 30.0 || manualOverride) && setupenv) {
     fanStepper.setSpeed(3000);
     fanStepper.runSpeed();
     Serial.println("Fan is on");
   }
   else {
     fanStepper.stop();
-    Serial.println("Fan is off");
   }
 
   // Read potentiometer value and map it to a servo angle (0 to 180 degrees)
@@ -164,10 +195,10 @@ void loop() {
     servoRunning = true;
     lastServoRunTime = currentTime; // Update the last run time
     digitalWrite(RELAYPIN, HIGH);   // Turn ON the relay to enable servo power
-    Serial.println("Starting servo motor operation...");
+    //Serial.println("Starting servo motor operation...");
   }
 
-  if (servoRunning) {
+  if (servoRunning && watersystem) {
     if (potValue > 350) {  // Halt if potentiometer value is high (rain detected)
       servoRunning = false;
       digitalWrite(RELAYPIN, LOW);  // Turn OFF the relay to disable servo power
@@ -175,7 +206,7 @@ void loop() {
     } else if (currentTime - lastServoRunTime >= servoRunDuration) {
       servoRunning = false; // Stop the servo after some time
       digitalWrite(RELAYPIN, LOW);  // Turn OFF the relay to disable servo power
-      Serial.println("Servo operation completed.");
+      //Serial.println("Servo operation completed.");
     }  else {
         static int currentAngle = 0; // Static variable to track current angle
         // Oscillate the servo between 0° and 180° without time steps
@@ -193,8 +224,6 @@ void loop() {
             }
         }
         wateringServo.write(currentAngle); // Set the servo position
-        Serial.print("Servo Angle: ");
-        Serial.println(currentAngle);
         delay(10); // Small delay for smooth movement
     }
   } else {
@@ -210,12 +239,12 @@ void loop() {
 
   // Turn on LED if light level is low
   int lightThreshold = 100; // Threshold for low light
-  if (lux < lightThreshold) {
+  if ((lux < lightThreshold) && setupenv) {
     digitalWrite(LEDPIN, HIGH); // Turn on the LED
     Serial.println("Low light detected. LED turned ON.");
   } else {
     digitalWrite(LEDPIN, LOW); // Turn off the LED
-    Serial.println("Sufficient light detected. LED turned OFF.");
+    //Serial.println("Sufficient light detected. LED turned OFF.");
   }
   
   // Motion detection with PIR sensor
