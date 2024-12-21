@@ -191,7 +191,7 @@ void loop() {
   int potValue = analogRead(POTPIN);
 
   unsigned long currentTime = millis();
-  if (currentTime - lastServoRunTime >= servoInterval && !servoRunning) {
+  if (currentTime - lastServoRunTime >= servoInterval && !servoRunning && watersystem) {
     servoRunning = true;
     lastServoRunTime = currentTime; // Update the last run time
     digitalWrite(RELAYPIN, HIGH);   // Turn ON the relay to enable servo power
