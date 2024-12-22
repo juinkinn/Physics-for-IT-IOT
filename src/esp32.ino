@@ -6,15 +6,15 @@
 #include <PubSubClient.h>
 #include <AccelStepper.h>
 
-#define DHTPIN 4            // DHT22 pin (temperature and humidity)
+#define DHTPIN 4            
 #define DHTTYPE DHT22       
-#define POTPIN 35           // Potentiometer pin (for controlling servo)
-#define PIRPIN 32           // PIR motion sensor pin
-#define BUZZERPIN 23        // Buzzer pin 
-#define SERVOPIN 25         // Servo motor control pin (PWM)
-#define RELAYPIN 22         // Relay pin for controlling servo power
-#define LIGHTPIN 34         // Light sensor pin (analog input)
-#define LEDPIN 27           // LED pin (digital output)
+#define POTPIN 35           
+#define PIRPIN 32           
+#define BUZZERPIN 23        
+#define SERVOPIN 25         
+#define RELAYPIN 22         
+#define LIGHTPIN 34         
+#define LEDPIN 27           
 #define SWITCHPIN 33
 
 const char* ssid = "Wokwi-GUEST";
@@ -25,25 +25,25 @@ const char* mqttServer = "broker.hivemq.com";
 int port = 1883;
 
 DHT dht(DHTPIN, DHTTYPE);
-LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD address
+LiquidCrystal_I2C lcd(0x27, 16, 2);  
 Servo wateringServo;
 WiFiClient wifiClient;
 PubSubClient mqttClient(wifiClient);
 AccelStepper fanStepper(AccelStepper::FULL4WIRE, 3, 2, 13, 14);
 
-bool IOTsystem = true;
-bool watersystem = true;
-bool setupenv = true;
+bool IOTsystem = false;
+bool watersystem = false;
+bool setupenv = false;
 
 int pirState = LOW;
 unsigned long lastServoRunTime = 0;      // Stores the last time the servo was activated
 const unsigned long servoInterval = 3000;  // Every 3s servo runs
 const unsigned long servoRunDuration = 30000;  // 30s, Running duration of servo
 bool servoRunning = false;
-bool servoDirectionUp = true;  // Direction of servo movement (up or down)
+bool servoDirectionUp = true;  
 
 const float GAMMA = 0.7;       // Gamma value for the photoresistor
-const float RL10 = 50;         // Resistance of LDR at 10 lux in kilo-ohms
+const float RL10 = 50;         // Resistance of LDR
 
 void wifiConnect() {
   WiFi.begin(ssid, password);
@@ -79,7 +79,7 @@ void mqttConnect() {
 //MQTT Receiver
 void callback(char* topic, byte* message, unsigned int length) {
   if (String(topic) == "/wateringTKMQ/temp" || String(topic) == "/wateringTKMQ/humid") {
-    return; // Skip processing for these topics
+    return; 
   }
 
   Serial.print("Received message on topic: ");
@@ -154,7 +154,7 @@ void loop() {
   if (!IOTsystem) {
     return;
   }
-  // Read temperature and humidity from the DHT11 sensor
+  // Read temperature and humidity
   float temperature = dht.readTemperature();
   float humidity = dht.readHumidity();
 
@@ -166,11 +166,11 @@ void loop() {
   snprintf(tempBuffer, sizeof(tempBuffer), "%.2f", temperature);
   snprintf(humidBuffer, sizeof(humidBuffer), "%.2f", humidity);
 
-  // Publish to respective topics
+  // Publish topics
   mqttClient.publish("/wateringTKMQ/temp", tempBuffer);
   mqttClient.publish("/wateringTKMQ/humid", humidBuffer);
 
-  // Display temperature, humidity, and light levels on the LCD screen
+  // Display temperature, humidity
   lcd.setCursor(0, 0);
   lcd.print("Temp: " + String(temperature) + " C");
   lcd.setCursor(0, 1);
@@ -187,48 +187,43 @@ void loop() {
     fanStepper.stop();
   }
 
-  // Read potentiometer value and map it to a servo angle (0 to 180 degrees)
   int potValue = analogRead(POTPIN);
-
   unsigned long currentTime = millis();
   if (currentTime - lastServoRunTime >= servoInterval && !servoRunning && watersystem) {
     servoRunning = true;
-    lastServoRunTime = currentTime; // Update the last run time
-    digitalWrite(RELAYPIN, HIGH);   // Turn ON the relay to enable servo power
-    //Serial.println("Starting servo motor operation...");
+    lastServoRunTime = currentTime; 
+    digitalWrite(RELAYPIN, HIGH);   
   }
 
   if (servoRunning && watersystem) {
-    if (potValue > 350) {  // Halt if potentiometer value is high (rain detected)
+    if (potValue > 350) {  // rain detected
       servoRunning = false;
-      digitalWrite(RELAYPIN, LOW);  // Turn OFF the relay to disable servo power
+      digitalWrite(RELAYPIN, LOW); 
       Serial.println("Servo halted due to high potentiometer value.");
     } else if (currentTime - lastServoRunTime >= servoRunDuration) {
-      servoRunning = false; // Stop the servo after some time
-      digitalWrite(RELAYPIN, LOW);  // Turn OFF the relay to disable servo power
-      //Serial.println("Servo operation completed.");
+      servoRunning = false; 
+      digitalWrite(RELAYPIN, LOW);  
     }  else {
-        static int currentAngle = 0; // Static variable to track current angle
-        // Oscillate the servo between 0° and 180° without time steps
+        static int currentAngle = 0; 
         if (servoDirectionUp) {
-            currentAngle += 10; // Increase angle
+            currentAngle += 10; 
             if (currentAngle >= 180) {
                 currentAngle = 180;
-                servoDirectionUp = false; // Change direction to down
+                servoDirectionUp = false; 
             }
         } else {
-            currentAngle -= 10; // Decrease angle
+            currentAngle -= 10; 
             if (currentAngle <= 0) {
                 currentAngle = 0;
-                servoDirectionUp = true; // Change direction to up
+                servoDirectionUp = true; 
             }
         }
-        wateringServo.write(currentAngle); // Set the servo position
-        delay(10); // Small delay for smooth movement
+        wateringServo.write(currentAngle); 
+        delay(10); 
     }
   } else {
-    wateringServo.write(0); // Ensure servo is in a default state when not running
-    digitalWrite(RELAYPIN, LOW); // Keep the relay OFF to save power
+    wateringServo.write(0); 
+    digitalWrite(RELAYPIN, LOW); 
   }
 
   // Read light sensor value (photoresistor)
@@ -236,36 +231,34 @@ void loop() {
   float voltage = analogValue / 4096. * 5;  // ESP32 ADC resolution is 12-bit (0-4095)
   float resistance = 2000 * voltage / (1 - voltage / 5);  // Calculate resistance in ohms
   float lux = pow(RL10 * 1e3 * pow(10, GAMMA) / resistance, (1 / GAMMA)); // Calculate lux
-
+  
   // Turn on LED if light level is low
-  int lightThreshold = 100; // Threshold for low light
+  int lightThreshold = 100; // 
   if ((lux < lightThreshold) && setupenv) {
-    digitalWrite(LEDPIN, HIGH); // Turn on the LED
+    digitalWrite(LEDPIN, HIGH);
     Serial.println("Low light detected. LED turned ON.");
   } else {
-    digitalWrite(LEDPIN, LOW); // Turn off the LED
-    //Serial.println("Sufficient light detected. LED turned OFF.");
+    digitalWrite(LEDPIN, LOW); 
   }
   
-  // Motion detection with PIR sensor
-  int pirValue = digitalRead(PIRPIN);  // Read PIR sensor state
-  if (pirValue == HIGH) {              // If motion is detected
-    tone(BUZZERPIN, 300);     // Turn on the buzzer
+  // Motion detection
+  int pirValue = digitalRead(PIRPIN);  
+  if (pirValue == HIGH) {              
+    tone(BUZZERPIN, 300);     
     if (pirState == LOW) {             
       Serial.println("Motion detected!");
       pirState = HIGH;
     }
     delay(1000);
     noTone(BUZZERPIN);
-  } else {                             // If no motion is detected
-    noTone(BUZZERPIN);      // Turn off the buzzer
+  } else {                         
+    noTone(BUZZERPIN);      
     if (pirState == HIGH) {           
       Serial.println("Motion ended!");
       pirState = LOW;
     }
   }
 
-  // Print data to the serial monitor for debugging
   Serial.print("Temperature: ");
   Serial.print(temperature);
   Serial.print(" C, Humidity: ");
