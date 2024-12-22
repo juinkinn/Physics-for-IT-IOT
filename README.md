@@ -1,6 +1,6 @@
 # PHYSIC FOR IT
 
-**1. Project name**: Automatic plant watering system (Simulator)
+**1. Project name**: Automatic plant watering system (Simulator with Wokwi)
 
 **2. Components within project:**
 
